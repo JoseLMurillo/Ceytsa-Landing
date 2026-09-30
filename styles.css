@@ -446,17 +446,23 @@ button {
   max-width: 280px;
 }
 .capability > a {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   margin-top: 26px;
+  display: inline-block;
+  align-self: flex-start;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 99px;
+  transition: 0.25s;
+}
+.capability > a:hover {
+  background: #fff;
+  color: #07121d;
+  transform: scale(1.08);
 }
 .capability > a span {
   margin-left: 8px;
-}
-.cap-icon {
-  height: 260px;
-  position: relative;
-  margin-top: 40px;
 }
 .story {
   padding: 150px 0 0;
@@ -471,9 +477,10 @@ button {
 .story-rail {
   display: flex;
   gap: 2px;
-  width: max-content;
   padding-left: max(24px, calc((100vw - var(--max)) / 2));
   padding-right: 100px;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 .story-card {
   width: 470px;
@@ -481,6 +488,10 @@ button {
   padding: 35px;
   background: #101820;
   position: relative;
+  transition: opacity 0.7s ease, transform 0.7s ease, scale 0.3s ease !important;
+}
+.story-card:hover {
+  scale: 1.03;
 }
 .story-card > span {
   font-size: 10px;
@@ -498,55 +509,18 @@ button {
   max-width: 310px;
   margin-top: 18px;
 }
-.wireframe {
+.story-card img {
+  width: 100%;
   height: 260px;
-  margin-top: 35px;
-  border: 1px solid #30414e;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 13px;
-  padding: 30px;
-  position: relative;
-}
-.wireframe b {
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  color: #6796c8;
-}
-.wireframe i {
   display: block;
-  height: 12px;
-  background: linear-gradient(90deg, #5b9fe8, #183b61);
-  border-radius: 2px;
+  margin-top: 35px;
+  object-fit: cover;
+  border: 1px solid #30414e;
+  transition: border-color 0.3s ease;
 }
-.energy {
-  justify-content: flex-end;
+.story-card:hover img {
+  border-color: #5b9fe8;
 }
-.energy i {
-  height: 2px;
-}
-.energy i:nth-child(2) {
-  width: 75%;
-}
-.energy i:nth-child(3) {
-  width: 50%;
-}
-.height:after {
-  content: "";
-  position: absolute;
-  right: 60px;
-  top: 30px;
-  width: 2px;
-  height: 200px;
-  background: #578bc0;
-}
-.height i {
-  width: 100px;
-  height: 2px;
-  align-self: center;
-}
-
 .compliance {
   padding: 160px 0;
   background: #e9ebe7;
@@ -810,10 +784,13 @@ footer {
     grid-template-columns: 1fr;
   }
   .capabilities {
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
   }
   .capability {
-    min-height: 560px;
+    flex: 0 0 85%;
+    scroll-snap-align: start;
   }
   .story-card {
     width: 380px;
