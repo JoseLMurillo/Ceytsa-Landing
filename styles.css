@@ -397,28 +397,28 @@ button {
 .cap-blue {
   background:
     linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.85)),
-    url("/img/cableado_fibra_op.jpeg");
+    url("./img/cableado_fibra_op.jpeg");
   background-size: cover;
   background-position: center;
 }
 .cap-black {
   background:
     linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.85)),
-    url("/img/energia.jpeg");
+    url("./img/energia.jpeg");
   background-size: cover;
   background-position: center;
 }
 .cap-slate {
   background:
     linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.85)),
-    url("/img/telecomunicacion.jpeg");
+    url("./img/telecomunicacion.jpeg");
   background-size: cover;
   background-position: center;
 }
 .cap-green {
   background:
     linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.85)),
-    url("/img/altura\ \(2\).jpeg");
+    url("./img/altura\ \(2\).jpeg");
   background-size: cover;
   background-position: center;
 }
