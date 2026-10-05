@@ -47,14 +47,6 @@ button {
   background: #fff;
   mix-blend-mode: difference;
 }
-.topbar{position:fixed;z-index:90;top:0;left:0;width:100%;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;color:#fff;background:rgba(2,6,10,.62);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}
-.nav{display:flex;align-items:center;gap:30px;font-size:12px;font-weight:600;color:#c9d0d5}
-.nav a{transition:.25s}
-.nav a:hover{color:#fff}
-.nav-cta{padding:10px 15px;border:1px solid rgba(255,255,255,.22);border-radius:99px;color:#fff}
-.nav-cta b{font-size:15px;margin-left:7px}
-.menu{display:none;border:0;background:transparent}
-.menu i{display:block;width:24px;height:1px;background:#fff;margin:5px}
 .hero {
   position: relative;
   min-height: 100svh;
@@ -97,8 +89,70 @@ button {
   margin-left: max(4px, calc((100vw - var(--max)) / 2));
   padding-top: 80px;
 }
+.hero {
+  position: relative;
+  perspective: 1200px;
+  --mouse-x: 0;
+  --mouse-y: 0;
+}
+
+/* 1. Aumentamos el tiempo a 0.8s y usamos cubic-bezier para que frene suavemente */
+.hero-orbit, .hero-lines {
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero-orbit {
+  position: absolute;
+  border: 1px solid rgb(108, 159, 221);
+  border-radius: 50%;
+  animation: spin 25s linear infinite;
+}
+
+@keyframes spin {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+
+.orbit-a {
+  width: 50vw;
+  height: 50vw;
+  right: 0;
+  top: 8%;
+  /* 2. Reducimos la rotación a 5deg (antes 15) y el desplazamiento a 15px (antes 30) */
+  transform: 
+    rotateX(calc(var(--mouse-y) * -5deg)) 
+    rotateY(calc(var(--mouse-x) * 5deg)) 
+    translate3d(calc(var(--mouse-x) * 15px), calc(var(--mouse-y) * 15px), 40px);
+}
+
+.orbit-b {
+  width: 70vw;
+  height: 70vw;
+  right: -10%;
+  top: -2%;
+  animation-duration: 42s;
+  animation-direction: reverse;
+  /* 2. Reducimos la rotación a 3deg (antes 8) y el desplazamiento a 20px (antes 40) */
+  transform: 
+    rotateX(calc(var(--mouse-y) * -3deg)) 
+    rotateY(calc(var(--mouse-x) * 3deg)) 
+    translate3d(calc(var(--mouse-x) * -20px), calc(var(--mouse-y) * -20px), -60px);
+}
+
+.hero-lines {
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: linear-gradient(90deg, black, transparent 75%);
+  /* Reducimos el movimiento del fondo para que sea casi imperceptible */
+  transform: translate3d(calc(var(--mouse-x) * 5px), calc(var(--mouse-y) * 5px), 0);
+}
 .kicker {
-  font-size: 10px;
+  font-size: 17px;
   font-weight: 800;
   letter-spacing: 0.17em;
   color: #669ce2;
@@ -125,7 +179,7 @@ button {
   max-width: 530px;
   color: #aab5bf;
   margin-top: 30px;
-  font-size: 15px;
+  font-size: 18px;
 }
 .hero-buttons {
   display: flex;
@@ -139,7 +193,7 @@ button {
   gap: 18px;
   border-radius: 99px;
   padding: 14px 20px;
-  font-size: 12px;
+  font-size: large;
   font-weight: 700;
 }
 .pill span {
@@ -157,13 +211,8 @@ button {
   margin-left: 8px;
 }
 .hero-system {
-  position: absolute;
-  width: min(57vw, 700px);
-  aspect-ratio: 1;
-  right: -1vw;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0.95;
+  width: 100%;
+  transform: translateY(-22%);
 }
 .hero-system svg {
   width: 100%;
@@ -229,9 +278,32 @@ button {
 }
 .hero-orbit {
   position: absolute;
-  border: 1px solid rgba(108, 159, 221, 0.14);
+  /* Hacemos la línea un poquito más gruesa para que destaque (opcional, puedes dejarlo en 1px) */
+  border: 2px solid rgb(108, 159, 221);
   border-radius: 50%;
+  
+  /* Mantenemos la transición suave del mouse */
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  
+  /* Mantenemos la animación de giro continuo */
   animation: spin 25s linear infinite;
+
+  /* AQUÍ ESTÁ LA MAGIA: Recortamos el borde para hacer los segmentos */
+  /* El patrón va en grados (deg). 
+     - De 0 a 15deg: Línea visible (black)
+     - De 15deg a 30deg: Hueco (transparent) */
+  -webkit-mask-image: repeating-conic-gradient(
+    black 0deg, 
+    black 15deg,       /* <-- Largo de la línea (15 grados) */
+    transparent 15deg, 
+    transparent 30deg  /* <-- Tamaño de la separación (15 grados de hueco) */
+  );
+  mask-image: repeating-conic-gradient(
+    black 0deg, 
+    black 15deg, 
+    transparent 15deg, 
+    transparent 30deg
+  );
 }
 .orbit-a {
   width: 50vw;
@@ -248,8 +320,11 @@ button {
   animation-direction: reverse;
 }
 @keyframes spin {
+  from {
+    rotate: 0deg;
+  }
   to {
-    transform: rotate(360deg);
+    rotate: 360deg;
   }
 }
 .hero-bottom {
@@ -299,10 +374,14 @@ button {
   background: var(--paper);
 }
 .experience-head {
-  display: grid;
-  grid-template-columns: 1fr 370px;
-  gap: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding-bottom: 80px;
+}
+.experience-head .muted {
+  width: 50%;
+  font-size: large;
 }
 .display.dark {
   color: var(--ink);
@@ -326,28 +405,28 @@ button {
 }
 .cap-blue {
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.85)),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
     url("./img/cableado_fibra_op.jpeg");
   background-size: cover;
   background-position: center;
 }
 .cap-black {
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.85)),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
     url("./img/energia.jpeg");
   background-size: cover;
   background-position: center;
 }
 .cap-slate {
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.85)),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
     url("./img/telecomunicacion.jpeg");
   background-size: cover;
   background-position: center;
 }
 .cap-green {
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.85)),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
     url("./img/altura\ \(2\).jpeg");
   background-size: cover;
   background-position: center;
@@ -359,7 +438,7 @@ button {
   letter-spacing: 0.15em;
   color: rgba(255, 255, 255, 0.55);
 }
-.cap-top img{
+.cap-top img {
   height: 30px;
   opacity: 0.5;
 }
@@ -370,7 +449,7 @@ button {
   margin-top: auto;
 }
 .capability p {
-  font-size: 12px;
+  font-size: large;
   color: rgba(255, 255, 255, 0.63);
   margin-top: 18px;
   max-width: 280px;
@@ -418,7 +497,10 @@ button {
   padding: 35px;
   background: #101820;
   position: relative;
-  transition: opacity 0.7s ease, transform 0.7s ease, scale 0.3s ease !important;
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease,
+    scale 0.3s ease !important;
 }
 .story-card:hover {
   scale: 1.03;
@@ -672,9 +754,6 @@ footer {
   html {
     scroll-behavior: auto;
   }
-  .hero-orbit {
-    animation: none;
-  }
   .reveal {
     animation: none;
   }
@@ -728,7 +807,7 @@ footer {
     scroll-snap-align: start;
   }
   .story-rail {
-  scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
   }
   .story-card {
     width: 380px;
@@ -758,7 +837,7 @@ footer {
     margin-left: 16px;
   }
   .hero h1 {
-  font-size: clamp(40px, 13vw, 54px);
+    font-size: clamp(40px, 13vw, 54px);
   }
   .hero-bottom {
     padding: 0 16px;
@@ -777,14 +856,14 @@ footer {
     padding-top: 100px;
   }
   .display {
-  font-size: clamp(34px, 11vw, 48px);
+    font-size: clamp(34px, 11vw, 48px);
   }
   .capability {
     min-height: 530px;
   }
   .story-rail {
-  padding-left: 16px;
-  scroll-padding-left: 16px;
+    padding-left: 16px;
+    scroll-padding-left: 16px;
   }
   .story-card {
     width: calc(100vw - 48px);
@@ -810,7 +889,7 @@ footer {
     padding: 35px;
   }
   .leader-copy h2 {
-  font-size: clamp(34px, 11vw, 55px);
+    font-size: clamp(34px, 11vw, 55px);
   }
   .leader-grid {
     grid-template-columns: 1fr;

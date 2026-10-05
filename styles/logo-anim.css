@@ -1,0 +1,62 @@
+/* logo-anim.css — Animación del logo CE&T. Todo está acotado a .logo-anim.
+   Enlázalo DESPUÉS de styles.css para ganar prioridad sobre reglas de .hero-system. */
+.logo-anim {
+  --la-color: #7ccbec;
+  --la-text: #111;
+  --la-bg: #f3ffff;
+  --la-shadow: #000;
+  --la-ew: 14;
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: clamp(10px, 2vw, 22px);
+  /*background: var(--la-bg);*/
+  border-radius: 18px;
+  line-height: 0;
+}
+.logo-anim.la-pending .la-svg {
+  visibility: hidden;
+}
+.logo-anim .la-svg {
+  display: block;
+  position: static;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  transform: none;
+  animation: none;
+  overflow: visible;
+}
+.logo-anim .la-svg * {
+  animation: none;
+}
+.logo-anim .la-svg .la-n,
+.logo-anim .la-svg .la-cdot {
+  fill: var(--la-color);
+  stroke: none;
+}
+.logo-anim .la-svg .la-e,
+.logo-anim .la-svg .la-carc,
+.logo-anim .la-svg .la-ctail {
+  fill: none;
+  stroke: var(--la-color);
+  stroke-linecap: butt;
+}
+.logo-anim .la-svg .la-e {
+  stroke-width: var(--la-ew);
+}
+.logo-anim .la-svg .la-carc {
+  stroke-width: 18;
+}
+.logo-anim .la-svg .la-ctail {
+  stroke-width: 14;
+}
+.logo-anim .la-svg .la-t {
+  fill: var(--la-text);
+  stroke: none;
+  font-weight: 900;
+  font-family:
+    Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Black", sans-serif;
+}

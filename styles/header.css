@@ -1,0 +1,54 @@
+.topbar {
+  position: fixed;
+  z-index: 90;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  color: #fff;
+  background: rgba(2, 6, 10, 0.62);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.topbar a {
+ font-size: large;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #c9d0d5;
+}
+.nav a {
+  transition: 0.25s;
+}
+.nav a:hover {
+  color: #fff;
+}
+.nav-cta {
+  padding: 10px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 99px;
+  color: #fff;
+}
+.nav-cta b {
+  font-size: 15px;
+  margin-left: 7px;
+}
+.menu {
+  display: none;
+  border: 0;
+  background: transparent;
+}
+.menu i {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: #fff;
+  margin: 5px;
+}
