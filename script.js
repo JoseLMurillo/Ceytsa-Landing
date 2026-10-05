@@ -48,3 +48,10 @@ document.addEventListener("scroll", () => {
       el.style.transform = "translateY(0)";
     });
 }, {passive:true});
+
+const wa = document.querySelector(".wa-float");
+if (wa) {
+  const phone = wa.dataset.phone;
+  const message = encodeURIComponent(wa.dataset.message);
+  wa.href = `https://wa.me/${phone}?text=${message}`;
+}

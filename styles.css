@@ -48,12 +48,16 @@ button {
   mix-blend-mode: difference;
 }
 .topbar{position:fixed;z-index:90;top:0;left:0;width:100%;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;color:#fff;background:rgba(2,6,10,.62);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}
-.nav{display:flex;align-items:center;gap:30px;font-size:12px;font-weight:600;color:#c9d0d5}
+.logo{display:flex;align-items:center;gap:12px}
+.logo>span{font-weight:800;font-size:23px;letter-spacing:-.08em}
+.logo .amp{color:#76aef4}
+.logo small{font-size:8px;font-weight:700;letter-spacing:.13em;color:#9eabb6;max-width:150px;line-height:1.2}
+.nav{margin-left: auto;display:flex;align-items:center;gap:30px;font-size:12px;font-weight:600;color:#c9d0d5}
 .nav a{transition:.25s}
 .nav a:hover{color:#fff}
 .nav-cta{padding:10px 15px;border:1px solid rgba(255,255,255,.22);border-radius:99px;color:#fff}
 .nav-cta b{font-size:15px;margin-left:7px}
-.menu{display:none;border:0;background:transparent}
+.menu{margin-left: auto;display:none;border:0;background:transparent}
 .menu i{display:block;width:24px;height:1px;background:#fff;margin:5px}
 .hero {
   position: relative;
@@ -259,7 +263,7 @@ button {
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 32px;
   color: #687784;
   font-size: 8px;
@@ -654,9 +658,55 @@ footer {
 .footer > a:hover {
   color: #fff;
 }
-
 .reveal {
   animation: enter 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.wa-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  border-radius: 99px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  transform-origin: right center;
+  transition: transform 0.3s ease;
+}
+.wa-icon {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #25d366;
+}
+.wa-icon svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+.wa-label {
+  max-width: 0;
+  opacity: 0;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+  transition: max-width 0.35s ease, opacity 0.25s ease, padding 0.35s ease;
+}
+.wa-float:hover,
+.wa-float:focus-visible {
+  transform: scale(1.05);
+}
+.wa-float:hover .wa-label,
+.wa-float:focus-visible .wa-label {
+  max-width: 150px;
+  opacity: 1;
+  padding: 0 20px 0 12px;
 }
 @keyframes enter {
   from {
@@ -762,9 +812,6 @@ footer {
   }
   .hero-bottom {
     padding: 0 16px;
-  }
-  .hero-bottom span:nth-child(2) {
-    display: none;
   }
   .statement,
   .story,
