@@ -406,6 +406,7 @@ button {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
+/* Base de la tarjeta */
 .capability {
   min-height: 650px;
   padding: 30px;
@@ -414,35 +415,68 @@ button {
   color: #fff;
   position: relative;
   overflow: hidden;
+  isolation: isolate; /* Asegura un nuevo contexto de apilamiento */
+
+  /* Estado inicial para la animación de entrada */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.cap-blue {
-  background:
+
+/* Clase que activará JavaScript cuando el usuario haga scroll hasta la sección */
+.capability.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Capa de la imagen de fondo con degradado integrado */
+.capability::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  
+  /* Transición suave y lenta para el zoom al hacer hover (no brusco) */
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+              filter 0.8s ease;
+  will-change: transform;
+}
+
+/* EFECTO HOVER: Zoom sutil e incremento suave de contraste */
+.capability:hover::before {
+  transform: scale(1.06); /* Escala suave del 6% */
+  filter: brightness(1.1);
+}
+
+/* Asignamos las imágenes directamente al ::before */
+.cap-blue::before {
+  background-image: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
     url("./img/cableado_fibra_op.jpeg");
-  background-size: cover;
-  background-position: center;
 }
-.cap-black {
-  background:
+
+.cap-black::before {
+  background-image: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
     url("./img/energia.jpeg");
-  background-size: cover;
-  background-position: center;
 }
-.cap-slate {
-  background:
+
+.cap-slate::before {
+  background-image: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
     url("./img/telecomunicacion.jpeg");
-  background-size: cover;
-  background-position: center;
 }
-.cap-green {
-  background:
+
+.cap-green::before {
+  background-image: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
-    url("./img/altura\ \(2\).jpeg");
-  background-size: cover;
-  background-position: center;
+    url("./img/altura (2).jpeg");
 }
+
+/* Mantenemos tus estilos existentes */
 .cap-top {
   display: flex;
   justify-content: space-between;
@@ -450,22 +484,33 @@ button {
   letter-spacing: 0.15em;
   color: rgba(255, 255, 255, 0.55);
 }
+
 .cap-top img {
-  height: 30px;
+  height: 8em;
   opacity: 0.5;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
+
+/* Detalle opcional: animación sutil del logo dentro de la tarjeta al hacer hover */
+.capability:hover .cap-top img {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
 .capability h3 {
   font-size: 35px;
   line-height: 0.96;
   letter-spacing: -0.055em;
   margin-top: auto;
 }
+
 .capability p {
   font-size: large;
   color: rgba(255, 255, 255, 0.63);
   margin-top: 18px;
   max-width: 280px;
 }
+
 .capability > a {
   font-size: 12px;
   font-weight: 700;
@@ -477,11 +522,13 @@ button {
   border-radius: 99px;
   transition: 0.25s;
 }
+
 .capability > a:hover {
   background: #fff;
   color: #07121d;
   transform: scale(1.08);
 }
+
 .capability > a span {
   margin-left: 8px;
 }
