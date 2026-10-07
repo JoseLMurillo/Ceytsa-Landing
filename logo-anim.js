@@ -358,3 +358,33 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // ¡Se eliminó el hero.addEventListener('mouseleave', ...) para que se quede en su lugar!
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const capabilities = document.querySelectorAll('.capability');
+
+  const observerOptions = {
+    root: null,
+    threshold: 0.15 // Inicia la animación cuando se vea el 15% de la tarjeta
+  };
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Obtenemos el índice de cada elemento para escalonar la entrada
+        const card = entry.target;
+        const index = Array.from(capabilities).indexOf(card);
+        
+        // Retraso en cascada: cada tarjeta entra 120ms después de la anterior
+        setTimeout(() => {
+          card.classList.add('is-visible');
+        }, index * 120);
+
+        // Una vez animada, dejamos de observarla
+        obs.unobserve(card);
+      }
+    });
+  }, observerOptions);
+
+  capabilities.forEach((card) => observer.observe(card));
+});

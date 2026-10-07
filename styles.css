@@ -377,7 +377,7 @@ button {
 .large-copy {
   max-width: 650px;
   color: #8996a1;
-  font-size: 16px;
+  font-size: 20px;
   margin-top: 34px;
 }
 
@@ -467,7 +467,7 @@ button {
 .cap-slate::before {
   background-image: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
-    url("./img/telecomunicacion.jpeg");
+    url("./img/telecomunicaciones.jpeg");
 }
 
 .cap-green::before {
@@ -639,25 +639,25 @@ button {
   letter-spacing: -0.07em;
 }
 .cert-card span {
-  font-size: 9px;
+  font-size: 9px; 
   opacity: 0.55;
 }
 .mission {
-  padding: 150px 0;
+  padding: 100px 0 120px 0;
 }
 .mission-main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1px;
   background: #26313a;
-  margin-top: 60px;
+  /*margin-top: 60px;*/
 }
 .mission-main > div {
   background: var(--black);
-  padding: 55px;
+  padding: 33px;
 }
 .mission-label {
-  font-size: 9px;
+  font-size: 18px;
   letter-spacing: 0.17em;
   color: #669ce2;
   font-weight: 800;
@@ -666,12 +666,11 @@ button {
   font-size: 35px;
   line-height: 0.98;
   letter-spacing: -0.05em;
-  margin-top: 70px;
   max-width: 470px;
 }
 .mission p {
   color: #8996a1;
-  font-size: 13px;
+  font-size: 17px;
   max-width: 450px;
   margin-top: 25px;
 }
