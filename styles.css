@@ -47,18 +47,81 @@ button {
   background: #fff;
   mix-blend-mode: difference;
 }
-.topbar{position:fixed;z-index:90;top:0;left:0;width:100%;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;color:#fff;background:rgba(2,6,10,.62);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}
-.logo{display:flex;align-items:center;gap:12px}
-.logo>span{font-weight:800;font-size:23px;letter-spacing:-.08em}
-.logo .amp{color:#76aef4}
-.logo small{font-size:8px;font-weight:700;letter-spacing:.13em;color:#9eabb6;max-width:150px;line-height:1.2}
-.nav{margin-left: auto;display:flex;align-items:center;gap:30px;font-size:12px;font-weight:600;color:#c9d0d5}
-.nav a{transition:.25s}
-.nav a:hover{color:#fff}
-.nav-cta{padding:10px 15px;border:1px solid rgba(255,255,255,.22);border-radius:99px;color:#fff}
-.nav-cta b{font-size:15px;margin-left:7px}
-.menu{margin-left: auto;display:none;border:0;background:transparent}
-.menu i{display:block;width:24px;height:1px;background:#fff;margin:5px}
+.topbar {
+  position: fixed;
+  z-index: 90;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  color: #fff;
+  background: rgba(2, 6, 10, 0.62);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo > span {
+  font-weight: 800;
+  font-size: 23px;
+  letter-spacing: -0.08em;
+}
+.logo .amp {
+  color: #76aef4;
+}
+.logo small {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  color: #9eabb6;
+  max-width: 150px;
+  line-height: 1.2;
+}
+.nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #c9d0d5;
+}
+.nav a {
+  transition: 0.25s;
+}
+.nav a:hover {
+  color: #fff;
+}
+.nav-cta {
+  padding: 10px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 99px;
+  color: #fff;
+}
+.nav-cta b {
+  font-size: 15px;
+  margin-left: 7px;
+}
+.menu {
+  margin-left: auto;
+  display: none;
+  border: 0;
+  background: transparent;
+}
+.menu i {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: #fff;
+  margin: 5px;
+}
 .hero {
   position: relative;
   min-height: 100svh;
@@ -109,7 +172,8 @@ button {
 }
 
 /* 1. Aumentamos el tiempo a 0.8s y usamos cubic-bezier para que frene suavemente */
-.hero-orbit, .hero-lines {
+.hero-orbit,
+.hero-lines {
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -121,8 +185,12 @@ button {
 }
 
 @keyframes spin {
-  from { rotate: 0deg; }
-  to { rotate: 360deg; }
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
 }
 
 .orbit-a {
@@ -131,9 +199,8 @@ button {
   right: 0;
   top: 8%;
   /* 2. Reducimos la rotación a 5deg (antes 15) y el desplazamiento a 15px (antes 30) */
-  transform: 
-    rotateX(calc(var(--mouse-y) * -5deg)) 
-    rotateY(calc(var(--mouse-x) * 5deg)) 
+  transform: rotateX(calc(var(--mouse-y) * -5deg))
+    rotateY(calc(var(--mouse-x) * 5deg))
     translate3d(calc(var(--mouse-x) * 15px), calc(var(--mouse-y) * 15px), 40px);
 }
 
@@ -145,10 +212,13 @@ button {
   animation-duration: 42s;
   animation-direction: reverse;
   /* 2. Reducimos la rotación a 3deg (antes 8) y el desplazamiento a 20px (antes 40) */
-  transform: 
-    rotateX(calc(var(--mouse-y) * -3deg)) 
-    rotateY(calc(var(--mouse-x) * 3deg)) 
-    translate3d(calc(var(--mouse-x) * -20px), calc(var(--mouse-y) * -20px), -60px);
+  transform: rotateX(calc(var(--mouse-y) * -3deg))
+    rotateY(calc(var(--mouse-x) * 3deg))
+    translate3d(
+      calc(var(--mouse-x) * -20px),
+      calc(var(--mouse-y) * -20px),
+      -60px
+    );
 }
 
 .hero-lines {
@@ -161,7 +231,11 @@ button {
   background-size: 70px 70px;
   mask-image: linear-gradient(90deg, black, transparent 75%);
   /* Reducimos el movimiento del fondo para que sea casi imperceptible */
-  transform: translate3d(calc(var(--mouse-x) * 5px), calc(var(--mouse-y) * 5px), 0);
+  transform: translate3d(
+    calc(var(--mouse-x) * 5px),
+    calc(var(--mouse-y) * 5px),
+    0
+  );
 }
 .kicker {
   font-size: 17px;
@@ -293,10 +367,10 @@ button {
   /* Hacemos la línea un poquito más gruesa para que destaque (opcional, puedes dejarlo en 1px) */
   border: 2px solid rgb(108, 159, 221);
   border-radius: 50%;
-  
+
   /* Mantenemos la transición suave del mouse */
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-  
+
   /* Mantenemos la animación de giro continuo */
   animation: spin 25s linear infinite;
 
@@ -305,15 +379,15 @@ button {
      - De 0 a 15deg: Línea visible (black)
      - De 15deg a 30deg: Hueco (transparent) */
   -webkit-mask-image: repeating-conic-gradient(
-    black 0deg, 
-    black 15deg,       /* <-- Largo de la línea (15 grados) */
-    transparent 15deg, 
-    transparent 30deg  /* <-- Tamaño de la separación (15 grados de hueco) */
+    black 0deg,
+    black 15deg,
+    /* <-- Largo de la línea (15 grados) */ transparent 15deg,
+    transparent 30deg /* <-- Tamaño de la separación (15 grados de hueco) */
   );
   mask-image: repeating-conic-gradient(
-    black 0deg, 
-    black 15deg, 
-    transparent 15deg, 
+    black 0deg,
+    black 15deg,
+    transparent 15deg,
     transparent 30deg
   );
 }
@@ -395,12 +469,9 @@ button {
   width: 50%;
   font-size: large;
 }
-.display.dark {
-  color: var(--ink);
-}
+
 .muted {
   color: var(--muted);
-  font-size: 14px;
 }
 .capabilities {
   display: grid;
@@ -420,8 +491,9 @@ button {
   /* Estado inicial para la animación de entrada */
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Clase que activará JavaScript cuando el usuario haga scroll hasta la sección */
@@ -438,10 +510,11 @@ button {
   z-index: -1;
   background-size: cover;
   background-position: center;
-  
+
   /* Transición suave y lenta para el zoom al hacer hover (no brusco) */
-  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
-              filter 0.8s ease;
+  transition:
+    transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+    filter 0.8s ease;
   will-change: transform;
 }
 
@@ -453,25 +526,25 @@ button {
 
 /* Asignamos las imágenes directamente al ::before */
 .cap-blue::before {
-  background-image: 
+  background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
     url("./img/cableado_fibra_op.jpeg");
 }
 
 .cap-black::before {
-  background-image: 
+  background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
     url("./img/energia.jpeg");
 }
 
 .cap-slate::before {
-  background-image: 
+  background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
     url("./img/telecomunicaciones.jpeg");
 }
 
 .cap-green::before {
-  background-image: 
+  background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
     url("./img/altura (2).jpeg");
 }
@@ -488,7 +561,9 @@ button {
 .cap-top img {
   height: 8em;
   opacity: 0.5;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
 }
 
 /* Detalle opcional: animación sutil del logo dentro de la tarjeta al hacer hover */
@@ -512,7 +587,7 @@ button {
 }
 
 .capability > a {
-  font-size: 12px;
+  font-size: 17px;
   font-weight: 700;
   margin-top: 26px;
   display: inline-block;
@@ -533,27 +608,27 @@ button {
   margin-left: 8px;
 }
 .story {
-  padding: 150px 0 0;
+  padding: 150px 0 150px 0;
   overflow: hidden;
 }
 .story-intro {
   display: grid;
-  grid-template-columns: 180px 1fr 360px;
-  gap: 50px;
-  padding-bottom: 110px;
+  /*grid-template-columns: 180px 1fr 360px;
+  gap: 50px;*/
+  padding-bottom: 60px;
 }
 .story-rail {
   display: flex;
-  gap: 2px;
-  padding-left: max(24px, calc((100vw - var(--max)) / 2));
-  padding-right: 100px;
+  justify-content: center;
+  gap: 3px;
   overflow-x: auto;
   overflow-y: hidden;
+  color: white;
 }
 .story-card {
   width: 470px;
-  min-height: 600px;
-  padding: 35px;
+  min-height: 380px;
+  padding: 20px;
   background: #101820;
   position: relative;
   transition:
@@ -569,16 +644,15 @@ button {
   color: #6486a5;
 }
 .story-card h3 {
-  font-size: 29px;
+  font-size: 38px;
   line-height: 1;
   letter-spacing: -0.05em;
-  margin-top: 60px;
+  margin-top: 30px;
 }
 .story-card p {
-  font-size: 12px;
-  color: #7f8b95;
+  font-size: 20px;
   max-width: 310px;
-  margin-top: 18px;
+  margin-top: 40px;
 }
 .story-card img {
   width: 100%;
@@ -592,9 +666,27 @@ button {
 .story-card:hover img {
   border-color: #5b9fe8;
 }
+.orden-convectividad {
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)),
+    url("./img/orden_conectividad.jpeg");
+  background-size: cover;
+}
+.energia-llegue {
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)),
+    url("./img/energia_llegue.jpeg");
+  background-size: cover;
+}
+.llegar-operacion {
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)),
+    url("./img/altura2.jpeg");
+  background-size: cover;
+}
 .compliance {
   padding: 160px 0;
-  background: #e9ebe7;
+  /*background: #e9ebe7;*/
 }
 .compliance-grid {
   display: grid;
@@ -613,6 +705,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: var(--black);
 }
 .cert-card.big {
   grid-row: span 2;
@@ -629,7 +722,7 @@ button {
   color: #fff;
 }
 .cert-card small {
-  font-size: 8px;
+  font-size: 15px;
   letter-spacing: 0.15em;
   opacity: 0.55;
 }
@@ -639,7 +732,7 @@ button {
   letter-spacing: -0.07em;
 }
 .cert-card span {
-  font-size: 9px; 
+  font-size: 9px;
   opacity: 0.55;
 }
 .mission {
@@ -832,7 +925,10 @@ footer {
   font-size: 12px;
   font-weight: 700;
   color: var(--ink);
-  transition: max-width 0.35s ease, opacity 0.25s ease, padding 0.35s ease;
+  transition:
+    max-width 0.35s ease,
+    opacity 0.25s ease,
+    padding 0.35s ease;
 }
 .wa-float:hover,
 .wa-float:focus-visible {
