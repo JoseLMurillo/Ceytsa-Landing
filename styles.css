@@ -239,22 +239,6 @@ button {
 .hero-system svg path {
   stroke: rgba(116, 166, 225, 0.38);
 }
-.system-core {
-  position: absolute;
-  z-index: 3;
-  inset: 36%;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #f4f9fd;
-  border: 1px solid rgba(130, 184, 245, 0.6);
-  box-shadow: 0 0 80px rgba(30, 103, 198, 0.5);
-}
-.system-core img {
-  width: 85%;
-  height: auto;
-  filter: brightness(0.85);
-}
 .node {
   position: absolute;
   z-index: 4;
@@ -406,7 +390,6 @@ button {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
-/* Base de la tarjeta */
 .capability {
   min-height: 650px;
   padding: 30px;
@@ -415,22 +398,16 @@ button {
   color: #fff;
   position: relative;
   overflow: hidden;
-  isolation: isolate; /* Asegura un nuevo contexto de apilamiento */
-
-  /* Estado inicial para la animación de entrada */
+  isolation: isolate;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-/* Clase que activará JavaScript cuando el usuario haga scroll hasta la sección */
 .capability.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Capa de la imagen de fondo con degradado integrado */
 .capability::before {
   content: "";
   position: absolute;
@@ -438,45 +415,46 @@ button {
   z-index: -1;
   background-size: cover;
   background-position: center;
-  
-  /* Transición suave y lenta para el zoom al hacer hover (no brusco) */
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
               filter 0.8s ease;
   will-change: transform;
 }
-
-/* EFECTO HOVER: Zoom sutil e incremento suave de contraste */
 .capability:hover::before {
-  transform: scale(1.06); /* Escala suave del 6% */
+  transform: scale(1.06);
   filter: brightness(1.1);
 }
-
-/* Asignamos las imágenes directamente al ::before */
 .cap-blue::before {
   background-image: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
-    url("./img/cableado_fibra_op.jpeg");
+    url("./img/backbone_de_fibra_optica.jpeg");
 }
-
 .cap-black::before {
   background-image: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
-    url("./img/energia.jpeg");
+    url("./img/tablero.jpeg");
 }
-
 .cap-slate::before {
   background-image: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
     url("./img/telecomunicaciones.jpeg");
 }
-
 .cap-green::before {
   background-image: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85)),
     url("./img/altura (2).jpeg");
 }
-
-/* Mantenemos tus estilos existentes */
+.experience-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 40px 0 60px;
+}
+.experience-cta p {
+  font-size: large;
+  color:#02060a;
+}
 .cap-top {
   display: flex;
   justify-content: space-between;
@@ -484,14 +462,11 @@ button {
   letter-spacing: 0.15em;
   color: rgba(255, 255, 255, 0.55);
 }
-
 .cap-top img {
   height: 8em;
   opacity: 0.5;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
-
-/* Detalle opcional: animación sutil del logo dentro de la tarjeta al hacer hover */
 .capability:hover .cap-top img {
   opacity: 0.9;
   transform: scale(1.05);
@@ -509,28 +484,6 @@ button {
   color: rgba(255, 255, 255, 0.63);
   margin-top: 18px;
   max-width: 280px;
-}
-
-.capability > a {
-  font-size: 12px;
-  font-weight: 700;
-  margin-top: 26px;
-  display: inline-block;
-  align-self: flex-start;
-  padding: 10px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 99px;
-  transition: 0.25s;
-}
-
-.capability > a:hover {
-  background: #fff;
-  color: #07121d;
-  transform: scale(1.08);
-}
-
-.capability > a span {
-  margin-left: 8px;
 }
 .story {
   padding: 150px 0 0;
@@ -743,15 +696,18 @@ button {
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 470px;
-  gap: 120px;
+  gap: 70px 120px;
 }
 .contact-details {
-  border-top: 1px solid #27333c;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 40px;
 }
 .contact-details > * {
   display: block;
   padding: 27px 0;
-  border-bottom: 1px solid #27333c;
+  border-top: 1px solid #27333c;
 }
 .contact-details small {
   display: block;
@@ -772,6 +728,65 @@ button {
 }
 .contact-details a:hover strong {
   color: #6ca4e4;
+}
+.contact-form {
+  display: grid;
+  gap: 22px;
+  border-top: 1px solid #27333c;
+  padding-top: 27px;
+}
+.field {
+  display: grid;
+  gap: 8px;
+}
+.field label {
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #657581;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px 0;
+  font: inherit;
+  font-size: 16px;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #27333c;
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.25s;
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #4a5a66;
+}
+.field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.field input:focus,
+.field textarea:focus {
+  border-bottom-color: #6ca4e4;
+  box-shadow: 0 1px 0 #6ca4e4;
+}
+.contact-form .pill {
+  justify-self: start;
+  border: 0;
+  cursor: pointer;
+}
+.form-status {
+  min-height: 1.5em;
+  font-size: 12px;
+  color: #8996a1;
+}
+.form-status.ok {
+  color: #6ca4e4;
+}
+.form-status.error {
+  color: #e48a8a;
 }
 footer {
   background: #02060a;
@@ -927,6 +942,9 @@ footer {
   }
   .leader-copy {
     padding: 80px 30px;
+  }
+  .contact-details {
+  grid-template-columns: 1fr;
   }
 }
 @media (max-width: 560px) {

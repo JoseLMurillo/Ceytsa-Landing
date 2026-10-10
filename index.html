@@ -148,12 +148,11 @@
               <span>01</span
               ><img src="./img/logosinfondo2.png" alt="Logo CE&T" />
             </div>
-            <h3>Cableado<br />y fibra óptica.</h3>
+            <h3>Cableado Estructurado<br />Backbone de Fibra.</h3>
             <p>
               Centros de cableado, instalación de fibra óptica, mantenimiento,
               limpieza y certificación.
             </p>
-            <a href="#contacto">Conocer servicio <span>↗</span></a>
           </article>
 
           <article class="capability cap-black">
@@ -163,10 +162,9 @@
             </div>
             <h3>Energía<br />eléctrica.</h3>
             <p>
-              Ductos, canaletas, tubería, tomas, reparaciones, adecuaciones y
+              Tableros eléctricos, ductos, canaletas, tubería, tomas, reparaciones, adecuaciones y
               salas audio/video.
             </p>
-            <a href="#contacto">Conocer servicio <span>↗</span></a>
           </article>
 
           <article class="capability cap-slate">
@@ -174,12 +172,11 @@
               <span>03</span
               ><img src="./img/logosinfondo2.png" alt="Logo CE&T" />
             </div>
-            <h3>Telecomunicaciones<br />y sistemas.</h3>
+            <h3>Mantenimiento<br />y soporte cuartos técnicos.</h3>
             <p>
               Infraestructura para redes, puntos de comunicación y soluciones
               asociadas a telecomunicaciones.
             </p>
-            <a href="#contacto">Conocer servicio <span>↗</span></a>
           </article>
 
           <article class="capability cap-green">
@@ -192,8 +189,11 @@
               Personal capacitado y equipos idóneos para tareas de alto riesgo e
               instalaciones.
             </p>
-            <a href="#contacto">Conocer servicio <span>↗</span></a>
           </article>
+        </div>
+        <div class="container experience-cta">
+          <p>¿Tienes un proyecto en mente? Cuéntanos qué necesitas.</p>
+          <a class="pill dark-pill" href="#contacto">Contactar <span>↗</span></a>
         </div>
       </section>
 
@@ -350,6 +350,36 @@
               Cuéntanos qué necesitas instalar, reparar, adecuar o verificar.
             </p>
           </div>
+
+          <form class="contact-form" action="#" method="post">
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="name" required />
+            </div>
+
+            <div class="field">
+              <label for="correo">Correo</label>
+              <input type="email" id="correo" name="email" placeholder="tucorreo@empresa.com" autocomplete="email" required />
+            </div>
+
+            <div class="field">
+              <label for="telefono">Teléfono (opcional)</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="300 000 00 00" autocomplete="tel" />
+            </div>
+
+            <div class="field">
+              <label for="asunto">Asunto</label>
+              <input type="text" id="asunto" name="asunto" placeholder="¿Sobre qué quieres hablar?" required />
+            </div>
+
+            <div class="field">
+              <label for="mensaje">Descripción</label>
+              <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos qué necesitas" required></textarea>
+            </div>
+
+            <button class="pill primary" type="submit">Enviar mensaje <span>↗</span></button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
 
           <div class="contact-details">
             <a href="tel:+573137411185">
