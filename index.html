@@ -145,55 +145,177 @@
         <div class="capabilities">
           <article class="capability cap-blue">
             <div class="cap-top">
-              <span>01</span
-              ><img src="./img/logosinfondo2.png" alt="Logo CE&T" />
+              <span>01</span><img src="./img/logosinfondo2.png" alt="" />
             </div>
-            <h3>Cableado Estructurado<br />Backbone de Fibra.</h3>
+            <h3>
+              <a class="cap-link" href="#galeria" data-galeria="cableado">
+                Cableado Estructurado<br />Backbone de Fibra.
+              </a>
+            </h3>
             <p>
               Centros de cableado, instalación de fibra óptica, mantenimiento,
               limpieza y certificación.
             </p>
+            <div class="cap-more" aria-hidden="true">Ver galería ↗</div>
           </article>
 
           <article class="capability cap-black">
             <div class="cap-top">
               <span>02</span
-              ><img src="./img/logosinfondo2.png" alt="Logo CE&T" />
+              ><img src="./img/logosinfondo2.png" alt="" />
             </div>
-            <h3>Energía<br />eléctrica.</h3>
+            <h3>
+              <a class="cap-link" href="#galeria" data-galeria="energia">
+                Energía<br />eléctrica.
+              </a>
+            </h3>
             <p>
               Tableros eléctricos, ductos, canaletas, tubería, tomas, reparaciones, adecuaciones y
               salas audio/video.
             </p>
+            <div class="cap-more" aria-hidden="true">Ver galería ↗</div>
           </article>
 
           <article class="capability cap-slate">
             <div class="cap-top">
               <span>03</span
-              ><img src="./img/logosinfondo2.png" alt="Logo CE&T" />
+              ><img src="./img/logosinfondo2.png" alt="" />
             </div>
-            <h3>Mantenimiento<br />y soporte cuartos técnicos.</h3>
+            <h3>
+              <a class="cap-link" href="#galeria" data-galeria="cuartos">
+                Mantenimiento<br />y soporte cuartos técnicos.
+              </a>
+            </h3>
             <p>
               Infraestructura para redes, puntos de comunicación y soluciones
               asociadas a telecomunicaciones.
             </p>
+            <div class="cap-more" aria-hidden="true">Ver galería ↗</div>
           </article>
 
           <article class="capability cap-green">
             <div class="cap-top">
               <span>04</span
-              ><img src="./img/logosinfondo2.png" alt="Logo CE&T" />
+              ><img src="./img/logosinfondo2.png" alt="" />
             </div>
-            <h3>Trabajo<br />en alturas.</h3>
+            <h3>
+              <a class="cap-link" href="#galeria" data-galeria="alturas">
+                Trabajo<br />en alturas.
+              </a>
+            </h3>
             <p>
               Personal capacitado y equipos idóneos para tareas de alto riesgo e
               instalaciones.
             </p>
+            <div class="cap-more" aria-hidden="true">Ver galería ↗</div>
           </article>
         </div>
         <div class="container experience-cta">
           <p>¿Tienes un proyecto en mente? Cuéntanos qué necesitas.</p>
           <a class="pill dark-pill" href="#contacto">Contactar <span>↗</span></a>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="gallery" id="galeria">
+        <div class="container">
+          <p class="kicker">GALERÍA</p>
+          <h2 class="display dark">Así se ve<br /><span>nuestro trabajo.</span></h2>
+
+          <div class="gallery-tabs" role="tablist" aria-label="Áreas de trabajo">
+            <button class="gallery-tab is-active" role="tab" id="tab-cableado"
+              aria-controls="panel-cableado" aria-selected="true" data-tab="cableado">
+              Cableado y fibra
+            </button>
+            <button class="gallery-tab" role="tab" id="tab-energia"
+              aria-controls="panel-energia" aria-selected="false" tabindex="-1" data-tab="energia">
+              Energía eléctrica
+            </button>
+            <button class="gallery-tab" role="tab" id="tab-cuartos"
+              aria-controls="panel-cuartos" aria-selected="false" tabindex="-1" data-tab="cuartos">
+              Cuartos técnicos
+            </button>
+            <button class="gallery-tab" role="tab" id="tab-alturas"
+              aria-controls="panel-alturas" aria-selected="false" tabindex="-1" data-tab="alturas">
+              Trabajo en alturas
+            </button>
+          </div>
+
+          <div class="gallery-panel" role="tabpanel" id="panel-cableado" aria-labelledby="tab-cableado">
+            <figure class="gallery-item">
+              <img src="./img/cableado_fibra_op.jpeg" alt="Bandeja de fibra óptica con conectores azules" loading="lazy" />
+              <figcaption>Fibra óptica y conectores</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="./img/6.jpeg" alt="Bandeja de empalme de fibra óptica abierta" loading="lazy" />
+              <figcaption>Bandeja de empalme</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="./img/8.jpeg" alt="Caja de empalme de fibra óptica instalada en un tablero" loading="lazy" />
+              <figcaption>Caja de empalme</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="./img/9.jpeg" alt="Fibra óptica con conectores azules dentro de un gabinete" loading="lazy" />
+              <figcaption>Fibra en gabinete</figcaption>
+            </figure>
+          </div>
+
+          <div class="gallery-panel" role="tabpanel" id="panel-energia" aria-labelledby="tab-energia" hidden>
+            <figure class="gallery-item">
+              <img src="./img/energia.jpeg" alt="Tablero eléctrico con breakers y convertidor" loading="lazy" />
+              <figcaption>Tablero eléctrico</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="./img/1.jpeg" alt="Canaletas metálicas instaladas en el techo" loading="lazy" />
+              <figcaption>Canaletas</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="./img/4.jpeg" alt="Sala de reuniones con pantalla y equipo de videoconferencia" loading="lazy" />
+              <figcaption>Sala audio/video</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="./img/energia_llegue.jpeg" alt="Equipos UPS junto a un tablero eléctrico" loading="lazy" />
+              <figcaption>UPS y tablero</figcaption>
+            </figure>
+          </div>
+
+          <div class="gallery-panel" role="tabpanel" id="panel-cuartos" aria-labelledby="tab-cuartos" hidden>
+            <figure class="gallery-item">
+              <img src="./img/2.jpeg" alt="Rack de comunicaciones con UPS en un cuarto técnico" loading="lazy" />
+              <figcaption>Rack y UPS</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="./img/3.jpeg" alt="Rack con equipos de red y cableado azul organizado" loading="lazy" />
+              <figcaption>Rack organizado</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="./img/telecomunicaciones.jpeg" alt="Cables de red azules rotulados conectados a un switch" loading="lazy" />
+              <figcaption>Cableado rotulado</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="./img/orden_conectividad.jpeg" alt="Cables de red azules rotulados y ordenados en un rack" loading="lazy" />
+              <figcaption>Cableado ordenado</figcaption>
+            </figure>
+          </div>
+
+          <div class="gallery-panel" role="tabpanel" id="panel-alturas" aria-labelledby="tab-alturas" hidden>
+            <figure class="gallery-item">
+              <img src="./img/altura (2).jpeg" alt="Canasta elevadora bajo una estructura metálica" loading="lazy" />
+              <figcaption>Trabajo en altura</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="./img/telecomunicacion.jpeg" alt="Antena instalada en una estructura del techo de una bodega" loading="lazy" />
+              <figcaption>Instalación de antenas</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="./img/5_sin_texto.jpeg" alt="Personal con casco junto a una escalera en una bodega" loading="lazy" />
+              <figcaption>Personal capacitado</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="./img/llegar_operacion.jpeg" alt="Cámara instalada en una viga del techo con tubería metálica" loading="lazy" />
+              <figcaption>Instalación en altura</figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
