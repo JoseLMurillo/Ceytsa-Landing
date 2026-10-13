@@ -29,6 +29,8 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0)";
       observer.unobserve(entry.target);
     }
   });
@@ -41,13 +43,12 @@ document.querySelectorAll(".capability,.story-card,.cert-card,.mission-main>div,
   observer.observe(el);
 });
 
-document.addEventListener("scroll", () => {
-  document.querySelectorAll(".capability.visible,.story-card.visible,.cert-card.visible,.mission-main>div.visible,.leader-copy.visible")
-    .forEach(el => {
-      el.style.opacity = "1";
-      el.style.transform = "translateY(0)";
-    });
-}, {passive:true});
+document.addEventListener("click", (e) => {
+  if (!nav.contains(e.target) && !menu.contains(e.target)) {
+    nav.classList.remove("open");
+    menu.setAttribute("aria-expanded", "false");
+  }
+});
 
 const wa = document.querySelector(".wa-float");
 if (wa) {
