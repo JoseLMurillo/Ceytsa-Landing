@@ -16,7 +16,7 @@
     bg: "#f3ffff", // fondo de la tarjeta ('transparent' para quitarlo)
     thickness: 14, // grosor de las ramas
     showText: false,
-    final: "./img/logo_sin_letra_baja.png", // logo original al terminar ('' o 'none' para desactivar)
+    final: "./img/logo_con_letras.png", // logo original al terminar ('' o 'none' para desactivar)
   };
 
   // [id, x, y, radio, padre]
