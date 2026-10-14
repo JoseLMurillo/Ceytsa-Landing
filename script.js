@@ -50,6 +50,36 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// Galería con pestañas
+const tabs = document.querySelectorAll(".gallery-tab");
+const panels = document.querySelectorAll(".gallery-panel");
+
+function showTab(name) {
+  tabs.forEach((tab) => {
+    const active = tab.dataset.tab === name;
+    tab.classList.toggle("is-active", active);
+    tab.setAttribute("aria-selected", String(active));
+    tab.tabIndex = active ? 0 : -1;
+  });
+  panels.forEach((panel) => {
+    panel.hidden = panel.id !== `panel-${name}`;
+  });
+}
+
+tabs.forEach((tab, i) => {
+  tab.addEventListener("click", () => showTab(tab.dataset.tab));
+  tab.addEventListener("keydown", (e) => {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    const step = e.key === "ArrowRight" ? 1 : -1;
+    const next = tabs[(i + step + tabs.length) % tabs.length];
+    next.focus();
+    showTab(next.dataset.tab);
+  });
+});
+document.querySelectorAll("[data-galeria]").forEach((link) => {
+  link.addEventListener("click", () => showTab(link.dataset.galeria));
+});
+
 const wa = document.querySelector(".wa-float");
 if (wa) {
   const phone = wa.dataset.phone;
