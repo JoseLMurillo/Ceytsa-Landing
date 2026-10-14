@@ -29,6 +29,8 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0)";
       observer.unobserve(entry.target);
     }
   });
@@ -41,10 +43,46 @@ document.querySelectorAll(".capability,.story-card,.cert-card,.mission-main>div,
   observer.observe(el);
 });
 
-document.addEventListener("scroll", () => {
-  document.querySelectorAll(".capability.visible,.story-card.visible,.cert-card.visible,.mission-main>div.visible,.leader-copy.visible")
-    .forEach(el => {
-      el.style.opacity = "1";
-      el.style.transform = "translateY(0)";
-    });
-}, {passive:true});
+document.addEventListener("click", (e) => {
+  if (!nav.contains(e.target) && !menu.contains(e.target)) {
+    nav.classList.remove("open");
+    menu.setAttribute("aria-expanded", "false");
+  }
+});
+
+// Galería con pestañas
+const tabs = document.querySelectorAll(".gallery-tab");
+const panels = document.querySelectorAll(".gallery-panel");
+
+function showTab(name) {
+  tabs.forEach((tab) => {
+    const active = tab.dataset.tab === name;
+    tab.classList.toggle("is-active", active);
+    tab.setAttribute("aria-selected", String(active));
+    tab.tabIndex = active ? 0 : -1;
+  });
+  panels.forEach((panel) => {
+    panel.hidden = panel.id !== `panel-${name}`;
+  });
+}
+
+tabs.forEach((tab, i) => {
+  tab.addEventListener("click", () => showTab(tab.dataset.tab));
+  tab.addEventListener("keydown", (e) => {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    const step = e.key === "ArrowRight" ? 1 : -1;
+    const next = tabs[(i + step + tabs.length) % tabs.length];
+    next.focus();
+    showTab(next.dataset.tab);
+  });
+});
+document.querySelectorAll("[data-galeria]").forEach((link) => {
+  link.addEventListener("click", () => showTab(link.dataset.galeria));
+});
+
+const wa = document.querySelector(".wa-float");
+if (wa) {
+  const phone = wa.dataset.phone;
+  const message = encodeURIComponent(wa.dataset.message);
+  wa.href = `https://wa.me/${phone}?text=${message}`;
+}
