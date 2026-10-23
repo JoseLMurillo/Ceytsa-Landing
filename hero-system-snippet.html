@@ -1,0 +1,20 @@
+<!-- Reemplaza TODO el bloque <div class="hero-system" ...> ... </div> por esto: -->
+<div class="hero-system" aria-hidden="true">
+  <div class="logo-anim" data-logo-anim
+       data-speed="1"
+       data-repeat="1"
+       data-hold="1.5"
+       data-color="#7ccbec"
+       data-final="./img/logo_ceyt_final.png"></div>
+</div>
+
+<!-- En <head>, después de styles.css: -->
+<link rel="stylesheet" href="./logo-anim.css">
+
+<!-- Antes de </body> (antes de script.js): -->
+<script src="./logo-anim.js"></script>
+
+<!-- Otros atributos opcionales (todos con data-):
+     repeat="infinite" · bounce="false" · shadow="false" · shadow-color="#000"
+     text-color="#111" · bg="#f3ffff" (o "transparent") · thickness="14" · show-text="false"
+     final="none"  (termina en el dibujo, sin fundirse al logo original) -->
