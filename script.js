@@ -28,7 +28,6 @@ document.querySelector("#year").textContent = new Date().getFullYear();
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
       entry.target.style.opacity = "1";
       entry.target.style.transform = "translateY(0)";
       observer.unobserve(entry.target);
@@ -36,7 +35,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, {threshold:.12});
 
-document.querySelectorAll(".capability,.story-card,.cert-card,.mission-main>div,.leader-copy").forEach(el => {
+document.querySelectorAll(".capability,.story-card,.cert-card,.mission-main>div").forEach(el => {
   el.style.transition = "opacity .7s ease, transform .7s ease";
   el.style.opacity = "0";
   el.style.transform = "translateY(28px)";
@@ -50,7 +49,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Galería con pestañas
 const tabs = document.querySelectorAll(".gallery-tab");
 const panels = document.querySelectorAll(".gallery-panel");
 
@@ -78,6 +76,15 @@ tabs.forEach((tab, i) => {
 });
 document.querySelectorAll("[data-galeria]").forEach((link) => {
   link.addEventListener("click", () => showTab(link.dataset.galeria));
+});
+
+document.querySelectorAll(".marquee-track").forEach((track) => {
+  const copies = [...track.children].map((li) => {
+    const clone = li.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    return clone;
+  });
+  track.append(...copies);
 });
 
 const wa = document.querySelector(".wa-float");
