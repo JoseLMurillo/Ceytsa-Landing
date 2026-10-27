@@ -84,7 +84,6 @@
     <header class="topbar">
       <a class="brand-mini" href="#top" aria-label="CE&T, volver al inicio">
         <span class="brand-mini__word">CE<span>&amp;</span>T</span>
-        <span class="brand-mini__sub">S.A.S.</span>
       </a>
 
       <nav class="nav" id="nav">
@@ -1007,120 +1006,134 @@
       </section>
 
       <!-- CONTACT / 07 -->
-      <section class="contact section-dark" id="contacto">
-        <div class="contact-orbit" aria-hidden="true"></div>
-        <div class="container contact-grid">
-          <div class="contact-copy">
-            <p class="kicker" data-rise>07 / CONTACTO</p>
-            <h2 class="display" data-rise data-delay="80">
-              Hablemos de<br /><span>tu infraestructura.</span>
-            </h2>
-            <p class="large-copy" data-rise data-delay="150">
-              Cuéntanos qué necesitas instalar, reparar, adecuar o verificar.
-            </p>
-            <p class="contact-availability" data-rise data-delay="220">
-              <span aria-hidden="true"></span> Disponibles para nuevos proyectos
-            </p>
-          </div>
+      
+<section class="contact section-dark" id="contacto">
+  <div class="contact-orbit" aria-hidden="true"></div>
 
-          <form
-            class="contact-form"
-            action="#"
-            method="post"
-            data-rise
-            data-delay="120"
-          >
-            <div class="field">
-              <label for="nombre">Nombre</label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                placeholder="Escribe aquí tu nombre"
-                autocomplete="name"
-                required
-              />
-            </div>
+  <div class="container contact-grid">
+    <div class="contact-card">
+      <div class="contact-card__main">
+        <div class="contact-copy">
+          <p class="kicker" data-rise>07 / CONTACTO</p>
 
-            <div class="field">
-              <label for="correo">Correo</label>
-              <input
-                type="email"
-                id="correo"
-                name="email"
-                placeholder="tucorreo@empresa.com"
-                autocomplete="email"
-                required
-              />
-            </div>
+          <h2 class="display" data-rise data-delay="80">
+            Hablemos de<br />
+            <span>tu infraestructura.</span>
+          </h2>
 
-            <div class="field">
-              <label for="telefono">Teléfono</label>
-              <input
-                type="tel"
-                id="telefono"
-                name="telefono"
-                placeholder="300 000 00 00"
-                autocomplete="tel"
-              />
-            </div>
+          <p class="large-copy" data-rise data-delay="150">
+            Cuéntanos qué necesitas instalar, reparar, adecuar o verificar.
+          </p>
 
-            <div class="field">
-              <label for="asunto">Asunto</label>
-              <input
-                type="text"
-                id="asunto"
-                name="asunto"
-                placeholder="¿Sobre qué quieres hablar?"
-                required
-              />
-            </div>
-
-            <div class="field">
-              <label for="mensaje">Descripción</label>
-              <textarea
-                id="mensaje"
-                name="mensaje"
-                rows="5"
-                placeholder="Cuéntanos qué necesitas"
-                required
-              ></textarea>
-            </div>
-
-            <button class="pill primary contact-submit" type="submit">
-              <span>Enviar mensaje</span>
-              <span class="contact-submit__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path d="M5 12h14" />
-                  <path d="m13 6 6 6-6 6" />
-                </svg>
-              </span>
-            </button>
-            <p class="form-status" role="status" aria-live="polite"></p>
-          </form>
-
-          <div class="contact-details" data-rise data-delay="200">
-            <a href="tel:+573137411185">
-              <small>CELULAR</small>
-              <strong>313 741 11 85</strong>
-              <span>Llamar ahora</span>
-            </a>
-            <a href="mailto:jtaborda@ceytsa.com">
-              <small>CORREO</small>
-              <strong>jtaborda@ceytsa.com</strong>
-              <span>Enviar correo</span>
-            </a>
-            <div>
-              <small>OFICINA</small>
-              <strong
-                >Cra. 52 # 52-140<br />Oficina 701 · Edificio La
-                Libertad</strong
-              >
-              <span>Medellín, Colombia</span>
-            </div>
-          </div>
+          <p class="contact-availability" data-rise data-delay="220">
+            <span aria-hidden="true"></span>
+            Disponibles para nuevos proyectos
+          </p>
         </div>
-      </section>
+
+        <form
+          class="contact-form"
+          action="#"
+          method="post"
+          data-rise
+          data-delay="120"
+        >
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Escribe aquí tu nombre"
+              autocomplete="name"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="correo">Correo electrónico</label>
+            <input
+              type="email"
+              id="correo"
+              name="email"
+              placeholder="tucorreo@empresa.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="telefono">Teléfono</label>
+            <input
+              type="tel"
+              id="telefono"
+              name="telefono"
+              placeholder="300 000 00 00"
+              autocomplete="tel"
+            />
+          </div>
+
+          <div class="field">
+            <label for="asunto">Asunto</label>
+            <input
+              type="text"
+              id="asunto"
+              name="asunto"
+              placeholder="¿Sobre qué quieres hablar?"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="mensaje">Descripción del proyecto</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="4"
+              placeholder="Cuéntanos qué necesitas"
+              required
+            ></textarea>
+          </div>
+
+          <button class="pill primary contact-submit" type="submit">
+            <span>Enviar mensaje</span>
+            <span class="contact-submit__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M5 12h14" />
+                <path d="m13 6 6 6-6 6" />
+              </svg>
+            </span>
+          </button>
+
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="contact-details" data-rise data-delay="200">
+        <a href="tel:+573137411185">
+          <small>CELULAR</small>
+          <strong>313 741 11 85</strong>
+          <span>Llamar ahora ↗</span>
+        </a>
+
+        <a href="mailto:jtaborda@ceytsa.com">
+          <small>CORREO</small>
+          <strong>jtaborda@ceytsa.com</strong>
+          <span>Enviar correo ↗</span>
+        </a>
+
+        <div>
+          <small>OFICINA</small>
+          <strong>
+            Cra. 52 # 52-140, Oficina 701
+          </strong>
+          <span>Edificio La Libertad · Medellín, Colombia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
     </main>
 
     <footer>
