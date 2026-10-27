@@ -1,5 +1,3 @@
-/* logo-anim.css — Animación del logo CE&T. Todo está acotado a .logo-anim.
-   Enlázalo DESPUÉS de styles.css para ganar prioridad sobre reglas de .hero-system. */
 .logo-anim {
   --la-color: #7ccbec;
   --la-text: #111;
@@ -11,7 +9,6 @@
   max-width: 640px;
   margin: 0 auto;
   padding: clamp(10px, 2vw, 22px);
-  /*background: var(--la-bg);*/
   border-radius: 18px;
   line-height: 0;
 }

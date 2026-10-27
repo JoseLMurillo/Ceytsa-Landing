@@ -2,7 +2,10 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
     <title>
       CE&T — Infraestructura eléctrica, cableado y telecomunicaciones
     </title>
@@ -43,6 +46,10 @@
       }
     </script>
 
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -50,15 +57,36 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
-
     <link rel="stylesheet" href="./styles/header.css" />
     <link rel="stylesheet" href="./styles/logo-anim.css" />
+    <link rel="stylesheet" href="./styles/cinematic.css" />
+    <link rel="stylesheet" href="./styles/cinematic-gallery.css" />
+    <link rel="stylesheet" href="./styles/cinematic-sections.css" />
+
+    <noscript>
+      <style>
+        [data-rise] {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+        .gallery,
+        .story-stage {
+          height: auto !important;
+        }
+      </style>
+    </noscript>
   </head>
 
   <body>
-    <div class="progress" id="progress"></div>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
 
     <header class="topbar">
+      <a class="brand-mini" href="#top" aria-label="CE&T, volver al inicio">
+        <span class="brand-mini__word">CE<span>&amp;</span>T</span>
+        <span class="brand-mini__sub">S.A.S.</span>
+      </a>
+
       <nav class="nav" id="nav">
         <a href="#experience">Experiencia</a>
         <a href="#cumplimiento">Cumplimiento</a>
@@ -78,50 +106,74 @@
     </header>
 
     <main id="top">
-      <!-- HERO -->
-      <section class="hero">
-        <div class="hero-orbit orbit-a"></div>
-        <div class="hero-orbit orbit-b"></div>
-        <div class="hero-lines"></div>
+      <!-- HERO / 00 -->
+      <div class="hero-stage" data-scene="hero">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-orbit orbit-a" aria-hidden="true"></div>
+          <div class="hero-orbit orbit-b" aria-hidden="true"></div>
+          <div class="hero-lines" aria-hidden="true"></div>
+          <div class="hero-vignette" aria-hidden="true"></div>
 
-        <div class="hero-copy reveal">
-          <p class="kicker"><span></span>Medellín - Colombia</p>
-          <h1>Infraestructura que<br /><em>no falla</em></h1>
-          <p class="hero-lead">
-            Diseñamos, instalamos y certificamos cabelado estructurado, fibra
-            óptica, redes eléctricas y sistemas de telecomunicaciones para
-            operaciones que no pueden detenerse.
-          </p>
-          <div class="hero-buttons">
-            <a class="pill primary" href="#servicios"
-              >Explorar capacidades <span>↓</span></a
-            >
+          <div class="hero-copy">
+            <p class="kicker"><span></span>Medellín - Colombia</p>
+            <h1 id="hero-title">
+              <span class="hero-line"><span>Infraestructura que</span></span>
+              <span class="hero-line"
+                ><span><em>no falla</em></span></span
+              >
+            </h1>
+            <p class="hero-lead">
+              Diseñamos, instalamos y certificamos cableado estructurado, fibra
+              óptica, redes eléctricas y sistemas de telecomunicaciones para
+              operaciones que no pueden detenerse.
+            </p>
+            <div class="hero-buttons">
+              <a class="pill primary hero-cta" href="#servicios">
+                <span class="hero-cta__label">Explorar capacidades</span>
+                <span class="hero-cta__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M12 3v15" />
+                    <path d="m6.5 12.5 5.5 5.5 5.5-5.5" />
+                  </svg>
+                </span>
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div class="hero-system" aria-hidden="true">
-          <div
-            class="logo-anim"
-            data-logo-anim
-            data-speed="1"
-            data-repeat="1"
-            data-hold="1.5"
-            data-color="#7ccbec"
-            data-final="./img_webp/logo_con_letras.webp"
-          ></div>
-        </div>
-      </section>
+          <div class="hero-system" aria-hidden="true">
+            <div
+              class="logo-anim"
+              data-logo-anim
+              data-speed="1"
+              data-repeat="1"
+              data-hold="1.5"
+              data-color="#7ccbec"
+              data-final="./img_webp/logo_con_letras.webp"
+            ></div>
+          </div>
 
-      <!-- STATEMENT -->
-      <section class="statement section-dark">
+          <div class="hero-meta">
+            <div class="hero-stat">
+              <span class="hero-stat__num">18</span>
+              <span class="hero-stat__label"
+                >años construyendo<br />infraestructura crítica</span
+              >
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- STATEMENT / 01 -->
+      <section class="statement section-dark" data-scene="statement">
+        <div class="statement-glow" aria-hidden="true"></div>
         <div class="container statement-grid">
-          <p class="kicker">01 / NOSOTROS</p>
+          <p class="kicker" data-rise>01 / NOSOTROS</p>
           <div>
-            <h2 class="display">
+            <h2 class="display" data-rise data-delay="80">
               18 años al servicio<br /><span>de nuestros clientes</span>
             </h2>
-            <p class="large-copy">
-              CE&T S.A.S. empresa Colombiana especializada en el diseño, la
+            <p class="large-copy" data-rise data-delay="170">
+              CE&amp;T S.A.S. empresa Colombiana especializada en el diseño, la
               instalación y el mantenimiento de redes électricas, cableado
               estructurado y soluciones de telecomunicaciones. Nuestro objetivo
               principal es que la infraestructura de nuestros clientes funcionen
@@ -129,62 +181,255 @@
             </p>
           </div>
         </div>
-        <div class="logos">
+
+        <div class="logos" data-rise data-delay="240">
           <div class="marquee">
             <ul class="marquee-track">
-              <li><img src="./img_webp/clientes/corona.webp" alt="Corona" loading="lazy" /></li>
-              <li><img src="./img_webp/marcas/amp-netconnect.webp" alt="AMP NetConnect" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/grupo-malco-tcc.webp" alt="Grupo Malco y TCC" loading="lazy" /></li>
-              <li><img src="./img_webp/marcas/panduit.webp" alt="Panduit" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/conaltura.webp" alt="Conaltura" loading="lazy" /></li>
-              <li><img src="./img_webp/marcas/qpcom.webp" alt="Qpcom" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/urisvial.webp" alt="Urisvial" loading="lazy" /></li>
-              <li><img src="./img_webp/marcas/d-link.webp" alt="D-Link" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/ed-estrategias-documentales.webp" alt="ed Estrategias Documentales" loading="lazy" /></li>
-              <li><img src="./img_webp/marcas/apc.webp" alt="APC by Schneider Electric" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/colceramica.webp" alt="ColCerámica" loading="lazy" /></li>
-              <li><img src="./img_webp/marcas/schneider-electric.webp" alt="Schneider Electric" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/mario-loudono.webp" alt="Mario Loudoño" loading="lazy" /></li>
-              <li><img src="./img_webp/marcas/cdp.webp" alt="CDP Chicago Digital Power" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/3y-solutions.webp" alt="3Y Solutions" loading="lazy" /></li>
-              <li><img src="./img_webp/marcas/leviton.webp" alt="Leviton" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/gamma-corona.webp" alt="Gamma Corona" loading="lazy" /></li>
-              <li><img src="./img_webp/marcas/commscope.webp" alt="CommScope" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/hiper-centro-corona.webp" alt="Hiper Centro Corona" loading="lazy" /></li>
-              <li><img src="./img_webp/marcas/siemens.webp" alt="Siemens" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/hermeco.webp" alt="Hermeco" loading="lazy" /></li>
-              <li><img src="./img_webp/marcas/tp-link.webp" alt="TP-Link" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/flag-soluciones.webp" alt="Flag Soluciones" loading="lazy" /></li>
-              <li><img src="./img_webp/marcas/centelsa.webp" alt="Centelsa" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/coopebombas.webp" alt="Coopebombas" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/sumicol.webp" alt="Sumicol" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/vajillas-corona.webp" alt="Vajillas Corona" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/minerales-industriales.webp" alt="Minerales Industriales" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/offcorss.webp" alt="Offcorss" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/grainger.webp" alt="Grainger" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/cda-prado.webp" alt="CDA Prado" loading="lazy" /></li>
-              <li><img src="./img_webp/clientes/erecos.webp" alt="Erecos" loading="lazy" /></li>
+              <li>
+                <img
+                  src="./img_webp/clientes/corona.webp"
+                  alt="Corona"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/marcas/amp-netconnect.webp"
+                  alt="AMP NetConnect"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/grupo-malco-tcc.webp"
+                  alt="Grupo Malco y TCC"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/marcas/panduit.webp"
+                  alt="Panduit"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/conaltura.webp"
+                  alt="Conaltura"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/marcas/qpcom.webp"
+                  alt="Qpcom"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/urisvial.webp"
+                  alt="Urisvial"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/marcas/d-link.webp"
+                  alt="D-Link"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/ed-estrategias-documentales.webp"
+                  alt="ed Estrategias Documentales"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/marcas/apc.webp"
+                  alt="APC by Schneider Electric"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/colceramica.webp"
+                  alt="ColCerámica"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/marcas/schneider-electric.webp"
+                  alt="Schneider Electric"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/mario-loudono.webp"
+                  alt="Mario Loudoño"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/marcas/cdp.webp"
+                  alt="CDP Chicago Digital Power"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/3y-solutions.webp"
+                  alt="3Y Solutions"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/marcas/leviton.webp"
+                  alt="Leviton"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/gamma-corona.webp"
+                  alt="Gamma Corona"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/marcas/commscope.webp"
+                  alt="CommScope"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/hiper-centro-corona.webp"
+                  alt="Hiper Centro Corona"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/marcas/siemens.webp"
+                  alt="Siemens"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/hermeco.webp"
+                  alt="Hermeco"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/marcas/tp-link.webp"
+                  alt="TP-Link"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/flag-soluciones.webp"
+                  alt="Flag Soluciones"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/marcas/centelsa.webp"
+                  alt="Centelsa"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/coopebombas.webp"
+                  alt="Coopebombas"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/sumicol.webp"
+                  alt="Sumicol"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/vajillas-corona.webp"
+                  alt="Vajillas Corona"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/minerales-industriales.webp"
+                  alt="Minerales Industriales"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/offcorss.webp"
+                  alt="Offcorss"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/grainger.webp"
+                  alt="Grainger"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/cda-prado.webp"
+                  alt="CDA Prado"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src="./img_webp/clientes/erecos.webp"
+                  alt="Erecos"
+                  loading="lazy"
+                />
+              </li>
             </ul>
           </div>
         </div>
+
+        <span class="statement-watermark" aria-hidden="true">18</span>
       </section>
 
-      <!-- EXPERIENCE -->
-      <section class="experience" id="experience">
+      <!-- EXPERIENCE / 02 -->
+      <section class="experience" id="experience" data-scene="experience">
         <div class="container experience-head">
-          <div>
-            <p class="kicker">02 / EXPERIENCIA</p>
-            <h2 class="display">
+          <div class="experience-head__main">
+            <p class="kicker" data-rise>02 / EXPERIENCIA</p>
+            <h2 class="display" data-rise data-delay="70">
               Un equipo<br /><span>Cuatro frentes</span>
             </h2>
           </div>
         </div>
 
         <div class="capabilities">
-          <article class="capability cap-blue">
-            <div class="cap-top">
-              <span>01</span><img src="./img_webp/logosinfondo2.webp" alt="" />
-            </div>
+          <article class="capability cap-blue" data-rise>
+            <span class="cap-ghost" aria-hidden="true">01</span>
             <h3>
               <a class="cap-link" href="#galeria" data-galeria="cableado">
                 Cableado Estructurado<br />Backbone de Fibra.
@@ -196,27 +441,21 @@
             </p>
           </article>
 
-          <article class="capability cap-black">
-            <div class="cap-top">
-              <span>02</span
-              ><img src="./img_webp/logosinfondo2.webp" alt="" />
-            </div>
+          <article class="capability cap-black" data-rise data-delay="90">
+            <span class="cap-ghost" aria-hidden="true">02</span>
             <h3>
               <a class="cap-link" href="#galeria" data-galeria="energia">
                 Energía<br />eléctrica.
               </a>
             </h3>
             <p>
-              Tableros eléctricos, ductos, canaletas, tubería, tomas, reparaciones, adecuaciones y
-              salas audio/video.
+              Tableros eléctricos, ductos, canaletas, tubería, tomas,
+              reparaciones, adecuaciones y salas audio/video.
             </p>
           </article>
 
-          <article class="capability cap-slate">
-            <div class="cap-top">
-              <span>03</span
-              ><img src="./img_webp/logosinfondo2.webp" alt="" />
-            </div>
+          <article class="capability cap-slate" data-rise data-delay="180">
+            <span class="cap-ghost" aria-hidden="true">03</span>
             <h3>
               <a class="cap-link" href="#galeria" data-galeria="cuartos">
                 Mantenimiento<br />y soporte cuartos técnicos.
@@ -228,11 +467,8 @@
             </p>
           </article>
 
-          <article class="capability cap-green">
-            <div class="cap-top">
-              <span>03</span
-              ><img src="./img_webp/logosinfondo2.webp" alt="Logo CE&T" />
-            </div>
+          <article class="capability cap-green" data-rise data-delay="270">
+            <span class="cap-ghost" aria-hidden="true">04</span>
             <h3>
               <a class="cap-link" href="#galeria" data-galeria="alturas">
                 Trabajo<br />en alturas.
@@ -244,191 +480,509 @@
             </p>
           </article>
         </div>
+
         <div class="container experience-cta">
           <p>¿Tienes un proyecto en mente? Cuéntanos qué necesitas.</p>
           <a class="pill dark-pill" href="#contacto">Contactar</a>
         </div>
       </section>
 
-      <!-- GALLERY -->
-      <section class="gallery section-dark" id="galeria">
-        <div class="container">
-          <p class="kicker">03 / GALERÍA</p>
-          <h2 class="display">Así se ve<br /><span>nuestro trabajo.</span></h2>
+      <!-- GALLERY / 03 -->
+      <section class="gallery section-dark" id="galeria" data-scene="gallery">
+        <div class="gallery-pin">
+          <div class="gallery-bg" aria-hidden="true"></div>
+          <span class="gallery-ghost" data-gallery-ghost aria-hidden="true"
+            >ARCHIVO&nbsp;03</span
+          >
 
-          <div class="gallery-tabs" role="tablist" aria-label="Áreas de trabajo">
-            <button class="gallery-tab is-active" role="tab" id="tab-cableado"
-              aria-controls="panel-cableado" aria-selected="true" data-tab="cableado">
-              Cableado y fibra
-            </button>
-            <button class="gallery-tab" role="tab" id="tab-energia"
-              aria-controls="panel-energia" aria-selected="false" tabindex="-1" data-tab="energia">
-              Energía eléctrica
-            </button>
-            <button class="gallery-tab" role="tab" id="tab-cuartos"
-              aria-controls="panel-cuartos" aria-selected="false" tabindex="-1" data-tab="cuartos">
-              Cuartos técnicos
-            </button>
-            <button class="gallery-tab" role="tab" id="tab-alturas"
-              aria-controls="panel-alturas" aria-selected="false" tabindex="-1" data-tab="alturas">
-              Trabajo en alturas
-            </button>
+          <div class="container gallery-head">
+            <div class="gallery-head__top">
+              <p class="kicker" data-rise>03 / GALERÍA</p>
+            </div>
+
+            <div class="gallery-title-row">
+              <h2 class="display" data-rise data-delay="120">
+                Así se ve<br /><span>nuestro trabajo.</span>
+              </h2>
+            </div>
+
+            <div
+              class="gallery-tabs"
+              role="tablist"
+              aria-label="Áreas de trabajo"
+            >
+              <button
+                class="gallery-tab is-active"
+                role="tab"
+                id="tab-cableado"
+                aria-controls="panel-cableado"
+                aria-selected="true"
+                data-tab="cableado"
+              >
+                Cableado y fibra
+              </button>
+              <button
+                class="gallery-tab"
+                role="tab"
+                id="tab-energia"
+                aria-controls="panel-energia"
+                aria-selected="false"
+                tabindex="-1"
+                data-tab="energia"
+              >
+                Energía eléctrica
+              </button>
+              <button
+                class="gallery-tab"
+                role="tab"
+                id="tab-cuartos"
+                aria-controls="panel-cuartos"
+                aria-selected="false"
+                tabindex="-1"
+                data-tab="cuartos"
+              >
+                Cuartos técnicos
+              </button>
+              <button
+                class="gallery-tab"
+                role="tab"
+                id="tab-alturas"
+                aria-controls="panel-alturas"
+                aria-selected="false"
+                tabindex="-1"
+                data-tab="alturas"
+              >
+                Trabajo en alturas
+              </button>
+            </div>
           </div>
 
-          <div class="gallery-panel" role="tabpanel" id="panel-cableado" aria-labelledby="tab-cableado">
-            <figure class="gallery-item">
-              <img src="./img_webp/cableado_fibra_op.webp" alt="Bandeja de fibra óptica con conectores azules" loading="lazy" />
-              <figcaption>Fibra óptica y conectores</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="./img_webp/W7.webp" alt="Bandeja de empalme de fibra óptica abierta" loading="lazy" />
-              <figcaption>Bandeja de empalme</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="./img_webp/8.webp" alt="Caja de empalme de fibra óptica instalada en un tablero" loading="lazy" />
-              <figcaption>Caja de empalme</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="./img_webp/W6.webp" alt="Fibra óptica con conectores azules dentro de un gabinete" loading="lazy" />
-              <figcaption>Fibra en gabinete</figcaption>
-            </figure>
-          </div>
+          <div
+            class="gallery-viewport"
+            data-gallery-viewport
+            role="region"
+            aria-label="Galería de fotografías de proyectos"
+            tabindex="0"
+          >
+            <div
+              class="gallery-panel"
+              role="tabpanel"
+              id="panel-cableado"
+              aria-labelledby="tab-cableado"
+            >
+              <figure class="gallery-item">
+                <div class="gallery-media">
+                  <img
+                    src="./img_webp/cableado_fibra_op.webp"
+                    alt="Bandeja de fibra óptica con conectores azules"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="gi-no">01</span>
+                  <span class="gi-title">Fibra óptica y conectores</span>
+                  <span class="gi-meta">CABLEADO / FIBRA</span>
+                </figcaption>
+              </figure>
+              <figure class="gallery-item">
+                <div class="gallery-media">
+                  <img
+                    src="./img_webp/W7.webp"
+                    alt="Bandeja de empalme de fibra óptica abierta"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="gi-no">02</span>
+                  <span class="gi-title">Bandeja de empalme</span>
+                  <span class="gi-meta">CABLEADO / FIBRA</span>
+                </figcaption>
+              </figure>
+              <figure class="gallery-item">
+                <div class="gallery-media">
+                  <img
+                    src="./img_webp/8.webp"
+                    alt="Caja de empalme de fibra óptica instalada en un tablero"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="gi-no">03</span>
+                  <span class="gi-title">Caja de empalme</span>
+                  <span class="gi-meta">CABLEADO / FIBRA</span>
+                </figcaption>
+              </figure>
+              <figure class="gallery-item">
+                <div class="gallery-media">
+                  <img
+                    src="./img_webp/W6.webp"
+                    alt="Fibra óptica con conectores azules dentro de un gabinete"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="gi-no">04</span>
+                  <span class="gi-title">Fibra en gabinete</span>
+                  <span class="gi-meta">CABLEADO / FIBRA</span>
+                </figcaption>
+              </figure>
+            </div>
 
-          <div class="gallery-panel" role="tabpanel" id="panel-energia" aria-labelledby="tab-energia" hidden>
-            <figure class="gallery-item">
-              <img src="./img_webp/energia.webp" alt="Tablero eléctrico con breakers y convertidor" loading="lazy" />
-              <figcaption>Tablero eléctrico</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="./img_webp/W5.webp" alt="Tablero de transferencia electrónica automática" loading="lazy" />
-              <figcaption>Tablero de transferencia electrónica automática</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="./img_webp/W4.webp" alt="Tablero de medida directa y con TC" loading="lazy" />
-              <figcaption>Tablero de medida directa y con TC</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="./img_webp/energia_llegue.webp" alt="Equipos UPS junto a un tablero eléctrico" loading="lazy" />
-              <figcaption>UPS y tablero</figcaption>
-            </figure>
-          </div>
+            <div
+              class="gallery-panel"
+              role="tabpanel"
+              id="panel-energia"
+              aria-labelledby="tab-energia"
+              hidden
+            >
+              <figure class="gallery-item">
+                <div class="gallery-media">
+                  <img
+                    src="./img_webp/energia.webp"
+                    alt="Tablero eléctrico con breakers y convertidor"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="gi-no">01</span>
+                  <span class="gi-title">Tablero eléctrico</span>
+                  <span class="gi-meta">ENERGÍA / POTENCIA</span>
+                </figcaption>
+              </figure>
+              <figure class="gallery-item">
+                <div class="gallery-media">
+                  <img
+                    src="./img_webp/W5.webp"
+                    alt="Tablero de transferencia electrónica automática"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="gi-no">02</span>
+                  <span class="gi-title">Transferencia automática</span>
+                  <span class="gi-meta">ENERGÍA / POTENCIA</span>
+                </figcaption>
+              </figure>
+              <figure class="gallery-item">
+                <div class="gallery-media">
+                  <img
+                    src="./img_webp/W4.webp"
+                    alt="Tablero de medida directa y con TC"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="gi-no">03</span>
+                  <span class="gi-title">Medida directa y con TC</span>
+                  <span class="gi-meta">ENERGÍA / POTENCIA</span>
+                </figcaption>
+              </figure>
+              <figure class="gallery-item">
+                <div class="gallery-media">
+                  <img
+                    src="./img_webp/energia_llegue.webp"
+                    alt="Equipos UPS junto a un tablero eléctrico"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="gi-no">04</span>
+                  <span class="gi-title">UPS y tablero</span>
+                  <span class="gi-meta">ENERGÍA / POTENCIA</span>
+                </figcaption>
+              </figure>
+            </div>
 
-          <div class="gallery-panel" role="tabpanel" id="panel-cuartos" aria-labelledby="tab-cuartos" hidden>
-            <figure class="gallery-item">
-              <img src="./img_webp/W3.webp" alt="Rack de comunicaciones con UPS en un cuarto técnico" loading="lazy" />
-              <figcaption>Rack y UPS</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="./img_webp/3.webp" alt="Rack con equipos de red y cableado azul organizado" loading="lazy" />
-              <figcaption>Rack organizado</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="./img_webp/telecomunicaciones.webp" alt="Cables de red azules rotulados conectados a un switch" loading="lazy" />
-              <figcaption>Cableado rotulado</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="./img_webp/orden_conectividad.webp" alt="Cables de red azules rotulados y ordenados en un rack" loading="lazy" />
-              <figcaption>Cableado ordenado</figcaption>
-            </figure>
-          </div>
+            <div
+              class="gallery-panel"
+              role="tabpanel"
+              id="panel-cuartos"
+              aria-labelledby="tab-cuartos"
+              hidden
+            >
+              <figure class="gallery-item">
+                <div class="gallery-media">
+                  <img
+                    src="./img_webp/W3.webp"
+                    alt="Rack de comunicaciones con UPS en un cuarto técnico"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="gi-no">01</span>
+                  <span class="gi-title">Rack y UPS</span>
+                  <span class="gi-meta">CUARTOS / RED</span>
+                </figcaption>
+              </figure>
+              <figure class="gallery-item">
+                <div class="gallery-media">
+                  <img
+                    src="./img_webp/3.webp"
+                    alt="Rack con equipos de red y cableado azul organizado"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="gi-no">02</span>
+                  <span class="gi-title">Rack organizado</span>
+                  <span class="gi-meta">CUARTOS / RED</span>
+                </figcaption>
+              </figure>
+              <figure class="gallery-item">
+                <div class="gallery-media">
+                  <img
+                    src="./img_webp/telecomunicaciones.webp"
+                    alt="Cables de red azules rotulados conectados a un switch"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="gi-no">03</span>
+                  <span class="gi-title">Cableado rotulado</span>
+                  <span class="gi-meta">CUARTOS / RED</span>
+                </figcaption>
+              </figure>
+              <figure class="gallery-item">
+                <div class="gallery-media">
+                  <img
+                    src="./img_webp/orden_conectividad.webp"
+                    alt="Cables de red azules rotulados y ordenados en un rack"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="gi-no">04</span>
+                  <span class="gi-title">Cableado ordenado</span>
+                  <span class="gi-meta">CUARTOS / RED</span>
+                </figcaption>
+              </figure>
+            </div>
 
-          <div class="gallery-panel" role="tabpanel" id="panel-alturas" aria-labelledby="tab-alturas" hidden>
-            <figure class="gallery-item">
-              <img src="./img_webp/altura (2).webp" alt="Canasta elevadora bajo una estructura metálica" loading="lazy" />
-              <figcaption>Trabajo en altura</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="./img_webp/telecomunicacion.webp" alt="Antena instalada en una estructura del techo de una bodega" loading="lazy" />
-              <figcaption>Instalación de antenas</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="./img_webp/5_sin_texto.webp" alt="Personal con casco junto a una escalera en una bodega" loading="lazy" />
-              <figcaption>Personal capacitado</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="./img_webp/llegar_operacion.webp" alt="Cámara instalada en una viga del techo con tubería metálica" loading="lazy" />
-              <figcaption>Instalación en altura</figcaption>
-            </figure>
+            <div
+              class="gallery-panel"
+              role="tabpanel"
+              id="panel-alturas"
+              aria-labelledby="tab-alturas"
+              hidden
+            >
+              <figure class="gallery-item">
+                <div class="gallery-media">
+                  <img
+                    src="./img_webp/altura (2).webp"
+                    alt="Canasta elevadora bajo una estructura metálica"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="gi-no">01</span>
+                  <span class="gi-title">Trabajo en altura</span>
+                  <span class="gi-meta">ALTURAS / CAMPO</span>
+                </figcaption>
+              </figure>
+              <figure class="gallery-item">
+                <div class="gallery-media">
+                  <img
+                    src="./img_webp/telecomunicacion.webp"
+                    alt="Antena instalada en una estructura del techo de una bodega"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="gi-no">02</span>
+                  <span class="gi-title">Instalación de antenas</span>
+                  <span class="gi-meta">ALTURAS / CAMPO</span>
+                </figcaption>
+              </figure>
+              <figure class="gallery-item">
+                <div class="gallery-media">
+                  <img
+                    src="./img_webp/5_sin_texto.webp"
+                    alt="Personal con casco junto a una escalera en una bodega"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="gi-no">03</span>
+                  <span class="gi-title">Personal capacitado</span>
+                  <span class="gi-meta">ALTURAS / CAMPO</span>
+                </figcaption>
+              </figure>
+              <figure class="gallery-item">
+                <div class="gallery-media">
+                  <img
+                    src="./img_webp/llegar_operacion.webp"
+                    alt="Cámara instalada en una viga del techo con tubería metálica"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="gi-no">04</span>
+                  <span class="gi-title">Instalación en altura</span>
+                  <span class="gi-meta">ALTURAS / CAMPO</span>
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- COMPLIANCE -->
-      <section class="compliance" id="cumplimiento">
+      <!-- COMPLIANCE / 04 -->
+      <section class="compliance" id="cumplimiento" data-scene="compliance">
+        <div class="compliance-grid-bg" aria-hidden="true"></div>
         <div class="container compliance-grid">
-          <div>
-            <p class="kicker">04 / CUMPLIMIENTO</p>
-            <h2 class="display">
+          <div class="compliance-copy">
+            <p class="kicker" data-rise>04 / CUMPLIMIENTO</p>
+            <h2 class="display" data-rise data-delay="80">
               La técnica<br />también es<br /><span>responsabilidad.</span>
             </h2>
-            <p class="large-copy muted">
+            <p class="large-copy muted" data-rise data-delay="160">
               El portafolio señala el cumplimiento de la legislación colombiana
               vigente, junto con criterios de calidad, seguridad y salud en el
               trabajo y gestión ambiental.
             </p>
+            <div class="compliance-meter" aria-hidden="true">
+              <i data-compliance-meter></i>
+            </div>
+            <p class="compliance-caption" data-rise data-delay="220">
+              Norma &nbsp;·&nbsp; Reglamento &nbsp;·&nbsp; Gestión
+            </p>
           </div>
 
-          <div class="cert-stack">
-            <div class="cert-card big">
-              <small>NORMA</small>
-              <strong>NTC<br />2050</strong>
-              <span></span>
+          <div class="cert-stack" data-cert-stack>
+            <div class="cert-card big" data-cert data-cert-index="01">
+              <span class="cert-glow" aria-hidden="true"></span>
+              <div class="cert-inner">
+                <small>NORMA</small>
+                <strong>NTC<br />2050</strong>
+                <span></span>
+              </div>
             </div>
-            <div class="cert-card">
-              <small>REGLAMENTO</small>
-              <strong>RETIE</strong>
-              <span></span>
+            <div class="cert-card" data-cert data-cert-index="02">
+              <span class="cert-glow" aria-hidden="true"></span>
+              <div class="cert-inner">
+                <small>REGLAMENTO</small>
+                <strong>RETIE</strong>
+                <span></span>
+              </div>
             </div>
-            <div class="cert-card dark">
-              <small>GESTIÓN SST</small>
-              <strong>Seguridad y salud en el trabajo</strong>
+            <div class="cert-card dark" data-cert data-cert-index="03">
+              <span class="cert-glow" aria-hidden="true"></span>
+              <div class="cert-inner">
+                <small>GESTIÓN SST</small>
+                <strong>Seguridad y salud en el trabajo</strong>
+              </div>
             </div>
-            <div class="cert-card green">
-              <small>COMPROMISO</small>
-              <strong>Gestión ambiental integral</strong>
+            <div class="cert-card green" data-cert data-cert-index="04">
+              <span class="cert-glow" aria-hidden="true"></span>
+              <div class="cert-inner">
+                <small>COMPROMISO</small>
+                <strong>Gestión ambiental integral</strong>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SERVICE STORY -->
+      <!-- SERVICE STORY / 05 -->
       <section class="story section-dark" id="servicios">
         <div class="container story-intro">
-          <p class="kicker">05 / CÓMO TRABAJAMOS</p>
-          <h2 class="display">No instalamos por instalar</h2>
+          <p class="kicker" data-rise>05 / CÓMO TRABAJAMOS</p>
+          <div class="story-intro__row">
+            <h2 class="display" data-rise data-delay="80">
+              No instalamos<br /><span>por instalar</span>
+            </h2>
+          </div>
         </div>
 
-        <div class="story-rail">
-          <article class="story-card orden-convectividad">
-            <span>01</span>
-            <h3>Ordenamos la conectividad.</h3>
-            <p>
-              Instalación y mantenimiento de centros de cableado y fibra óptica.
-            </p>
-          </article>
+        <div class="story-stage" data-scene="story">
+          <div class="story-sticky">
+            <div class="story-progress" aria-hidden="true">
+              <i data-story-fill></i>
+            </div>
+            <div class="story-rail">
+              <article class="story-card orden-convectividad">
+                <div class="story-media">
+                  <img
+                    src="./img_webp/orden_conectividad.webp"
+                    alt="Cableado azul ordenado y rotulado en un rack"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="story-content">
+                  <span class="story-no">01</span>
+                  <h3>Ordenamos la conectividad.</h3>
+                  <p>
+                    Instalación y mantenimiento de centros de cableado y fibra
+                    óptica.
+                  </p>
+                  <span class="story-tag">CABLEADO / FIBRA</span>
+                </div>
+              </article>
 
-          <article class="story-card energia-llegue">
-            <span>02</span>
-            <h3>Hacemos que la energía llegue.</h3>
-            <p>
-              Instalaciones, adecuaciones, reparaciones, UPS y puesta a tierra.
-            </p>
-          </article>
+              <article class="story-card energia-llegue">
+                <div class="story-media">
+                  <img
+                    src="./img_webp/energia_llegue.webp"
+                    alt="Equipos UPS y tablero eléctrico en sala técnica"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="story-content">
+                  <span class="story-no">02</span>
+                  <h3>Hacemos que la energía llegue.</h3>
+                  <p>
+                    Instalaciones, adecuaciones, reparaciones, UPS y puesta a
+                    tierra.
+                  </p>
+                  <span class="story-tag">ENERGÍA / POTENCIA</span>
+                </div>
+              </article>
 
-          <article class="story-card llegar-operacion">
-            <span>03</span>
-            <h3>Llegamos donde la operación lo necesita.</h3>
-            <p>Instalación y desinstalación de antenas y luminarias.</p>
-          </article>
+              <article class="story-card llegar-operacion">
+                <div class="story-media">
+                  <img
+                    src="./img_webp/altura2.webp"
+                    alt="Trabajo técnico en altura dentro de una bodega industrial"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="story-content">
+                  <span class="story-no">03</span>
+                  <h3>Llegamos donde la operación lo necesita.</h3>
+                  <p>Instalación y desinstalación de antenas y luminarias.</p>
+                  <span class="story-tag">ALTURAS / CAMPO</span>
+                </div>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- MISSION -->
-      <section class="mission" id="direccion">
+      <!-- MISSION / 06 -->
+      <section class="mission" id="direccion" data-scene="mission">
         <div class="container">
-          <p class="kicker">06 / DIRECCIÓN</p>
           <div class="mission-main">
-            <div>
+            <div class="mission-block" data-rise>
+              <span class="mission-ghost" aria-hidden="true">01</span>
               <span class="mission-label">MISIÓN</span>
               <h2>Soluciones integrales que impulsan el progreso del país.</h2>
               <p>
@@ -437,7 +991,8 @@
                 calificado y experiencia comprobada en el sector industrial.
               </p>
             </div>
-            <div>
+            <div class="mission-block" data-rise data-delay="140">
+              <span class="mission-ghost" aria-hidden="true">02</span>
               <span class="mission-label">VISIÓN</span>
               <h2>Ser la empresa líder del país en infraestructura técnica.</h2>
               <p>
@@ -451,50 +1006,100 @@
         </div>
       </section>
 
-      <!-- CONTACT -->
+      <!-- CONTACT / 07 -->
       <section class="contact section-dark" id="contacto">
+        <div class="contact-orbit" aria-hidden="true"></div>
         <div class="container contact-grid">
-          <div>
-            <p class="kicker">07 / CONTACTO</p>
-            <h2 class="display">
+          <div class="contact-copy">
+            <p class="kicker" data-rise>07 / CONTACTO</p>
+            <h2 class="display" data-rise data-delay="80">
               Hablemos de<br /><span>tu infraestructura.</span>
             </h2>
-            <p class="large-copy">
+            <p class="large-copy" data-rise data-delay="150">
               Cuéntanos qué necesitas instalar, reparar, adecuar o verificar.
+            </p>
+            <p class="contact-availability" data-rise data-delay="220">
+              <span aria-hidden="true"></span> Disponibles para nuevos proyectos
             </p>
           </div>
 
-          <form class="contact-form" action="#" method="post">
+          <form
+            class="contact-form"
+            action="#"
+            method="post"
+            data-rise
+            data-delay="120"
+          >
             <div class="field">
               <label for="nombre">Nombre</label>
-              <input type="text" id="nombre" name="nombre" placeholder="Excribe aquí tu nombre" autocomplete="name" required />
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Escribe aquí tu nombre"
+                autocomplete="name"
+                required
+              />
             </div>
 
             <div class="field">
               <label for="correo">Correo</label>
-              <input type="email" id="correo" name="email" placeholder="tucorreo@empresa.com" autocomplete="email" required />
+              <input
+                type="email"
+                id="correo"
+                name="email"
+                placeholder="tucorreo@empresa.com"
+                autocomplete="email"
+                required
+              />
             </div>
 
             <div class="field">
               <label for="telefono">Teléfono</label>
-              <input type="tel" id="telefono" name="telefono" placeholder="300 000 00 00" autocomplete="tel" />
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                placeholder="300 000 00 00"
+                autocomplete="tel"
+              />
             </div>
 
             <div class="field">
               <label for="asunto">Asunto</label>
-              <input type="text" id="asunto" name="asunto" placeholder="¿Sobre qué quieres hablar?" required />
+              <input
+                type="text"
+                id="asunto"
+                name="asunto"
+                placeholder="¿Sobre qué quieres hablar?"
+                required
+              />
             </div>
 
             <div class="field">
               <label for="mensaje">Descripción</label>
-              <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos qué necesitas" required></textarea>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                rows="5"
+                placeholder="Cuéntanos qué necesitas"
+                required
+              ></textarea>
             </div>
 
-            <button class="pill primary" type="submit">Enviar mensaje</button>
+            <button class="pill primary contact-submit" type="submit">
+              <span>Enviar mensaje</span>
+              <span class="contact-submit__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M5 12h14" />
+                  <path d="m13 6 6 6-6 6" />
+                </svg>
+              </span>
+            </button>
             <p class="form-status" role="status" aria-live="polite"></p>
           </form>
 
-          <div class="contact-details">
+          <div class="contact-details" data-rise data-delay="200">
             <a href="tel:+573137411185">
               <small>CELULAR</small>
               <strong>313 741 11 85</strong>
@@ -519,13 +1124,30 @@
     </main>
 
     <footer>
+      <div class="footer-mega" aria-hidden="true"><span>CE&amp;T</span></div>
+      <div class="hero-film" aria-hidden="true">
+        <div class="hero-film__track" data-hero-film>
+          <img src="./img_webp/W6.webp" alt="" />
+          <img src="./img_webp/telecomunicaciones.webp" alt="" />
+          <img src="./img_webp/tablero.webp" alt="" />
+          <img src="./img_webp/W9.webp" alt="" />
+          <img src="./img_webp/cableado_fibra_op.webp" alt="" />
+          <img src="./img_webp/energia.webp" alt="" />
+          <img src="./img_webp/W3.webp" alt="" />
+          <img src="./img_webp/backbone_de_fibra_optica.webp" alt="" />
+        </div>
+      </div>
       <div class="container footer">
         <div class="logo">
-          <img src="./img_webp/logosinfondo2.webp" alt="CE&T S.A.S." />
+          <img
+            src="./img_webp/logosinfondo2.webp"
+            alt="CE&amp;T S.A.S."
+            loading="lazy"
+          />
           <small>CABLEADO · ENERGÍA · TELECOMUNICACIONES</small>
         </div>
-        <p>© <span id="year"></span> CE&T S.A.S. · Medellín, Colombia</p>
-        <a href="#top">Volver arriba</a>
+        <p>© <span id="year"></span> CE&amp;T S.A.S. · Medellín, Colombia</p>
+        <a href="#top">Volver arriba ↑</a>
       </div>
     </footer>
 
@@ -550,5 +1172,6 @@
 
     <script src="logo-anim.js"></script>
     <script src="script.js"></script>
+    <script src="cinematic.js"></script>
   </body>
 </html>
