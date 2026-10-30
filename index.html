@@ -113,6 +113,14 @@
           <div class="hero-lines" aria-hidden="true"></div>
           <div class="hero-vignette" aria-hidden="true"></div>
 
+
+
+
+
+
+
+
+          
           <div class="hero-copy">
             <p class="kicker"><span></span>Medellín - Colombia</p>
             <h1 id="hero-title">
@@ -824,7 +832,7 @@
               <figure class="gallery-item">
                 <div class="gallery-media">
                   <img
-                    src="./img_webp/llegar_operacion.webp"
+                    src="./img_webp/camara.jpeg"
                     alt="Cámara instalada en una viga del techo con tubería metálica"
                     loading="lazy"
                     decoding="async"
@@ -1010,127 +1018,141 @@
 <section class="contact section-dark" id="contacto">
   <div class="contact-orbit" aria-hidden="true"></div>
 
-  <div class="container contact-grid">
-    <div class="contact-card">
-      <div class="contact-card__main">
-        <div class="contact-copy">
-          <p class="kicker" data-rise>07 / CONTACTO</p>
+  <div class="container contact-layout">
+    <div class="contact-intro">
+      <p class="kicker" data-rise>07 / CONTACTO</p>
 
-          <h2 class="display" data-rise data-delay="80">
-            Hablemos de<br />
-            <span>tu infraestructura.</span>
-          </h2>
+      <h2 class="display" data-rise data-delay="80">
+        Hablemos de<br />
+        <span>tu infraestructura.</span>
+      </h2>
 
-          <p class="large-copy" data-rise data-delay="150">
-            Cuéntanos qué necesitas instalar, reparar, adecuar o verificar.
-          </p>
+      <p class="large-copy" data-rise data-delay="150">
+        Cuéntanos qué necesitas instalar, reparar, adecuar o verificar.
+      </p>
 
-          <p class="contact-availability" data-rise data-delay="220">
-            <span aria-hidden="true"></span>
-            Disponibles para nuevos proyectos
-          </p>
-        </div>
+      <p class="contact-availability" data-rise data-delay="220">
+        <span aria-hidden="true"></span>
+        Disponibles para nuevos proyectos
+      </p>
 
-        <form
-          class="contact-form"
-          action="#"
-          method="post"
-          data-rise
-          data-delay="120"
-        >
-          <div class="field">
-            <label for="nombre">Nombre</label>
-            <input
-              type="text"
-              id="nombre"
-              name="nombre"
-              placeholder="Escribe aquí tu nombre"
-              autocomplete="name"
-              required
-            />
-          </div>
-
-          <div class="field">
-            <label for="correo">Correo electrónico</label>
-            <input
-              type="email"
-              id="correo"
-              name="email"
-              placeholder="tucorreo@empresa.com"
-              autocomplete="email"
-              required
-            />
-          </div>
-
-          <div class="field">
-            <label for="telefono">Teléfono</label>
-            <input
-              type="tel"
-              id="telefono"
-              name="telefono"
-              placeholder="300 000 00 00"
-              autocomplete="tel"
-            />
-          </div>
-
-          <div class="field">
-            <label for="asunto">Asunto</label>
-            <input
-              type="text"
-              id="asunto"
-              name="asunto"
-              placeholder="¿Sobre qué quieres hablar?"
-              required
-            />
-          </div>
-
-          <div class="field">
-            <label for="mensaje">Descripción del proyecto</label>
-            <textarea
-              id="mensaje"
-              name="mensaje"
-              rows="4"
-              placeholder="Cuéntanos qué necesitas"
-              required
-            ></textarea>
-          </div>
-
-          <button class="pill primary contact-submit" type="submit">
-            <span>Enviar mensaje</span>
-            <span class="contact-submit__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M5 12h14" />
-                <path d="m13 6 6 6-6 6" />
-              </svg>
-            </span>
-          </button>
-
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </form>
+      <form
+      class="contact-form"
+      action="#"
+      method="post"
+      data-rise
+      data-delay="120"
+    >
+      <div class="field">
+        <label for="nombre">Nombre</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          placeholder="Escribe aquí tu nombre"
+          autocomplete="name"
+          required
+        />
       </div>
 
-      <div class="contact-details" data-rise data-delay="200">
-        <a href="tel:+573137411185">
-          <small>CELULAR</small>
-          <strong>313 741 11 85</strong>
-          <span>Llamar ahora ↗</span>
-        </a>
-
-        <a href="mailto:jtaborda@ceytsa.com">
-          <small>CORREO</small>
-          <strong>jtaborda@ceytsa.com</strong>
-          <span>Enviar correo ↗</span>
-        </a>
-
-        <div>
-          <small>OFICINA</small>
-          <strong>
-            Cra. 52 # 52-140, Oficina 701
-          </strong>
-          <span>Edificio La Libertad · Medellín, Colombia</span>
-        </div>
+      <div class="field">
+        <label for="correo">Correo electrónico</label>
+        <input
+          type="email"
+          id="correo"
+          name="email"
+          placeholder="tucorreo@empresa.com"
+          autocomplete="email"
+          required
+        />
       </div>
+
+      <div class="field">
+        <label for="telefono">Teléfono</label>
+        <input
+          type="tel"
+          id="telefono"
+          name="telefono"
+          placeholder="300 000 00 00"
+          autocomplete="tel"
+        />
+      </div>
+
+      <div class="field">
+        <label for="asunto">Asunto</label>
+        <input
+          type="text"
+          id="asunto"
+          name="asunto"
+          placeholder="¿Sobre qué quieres hablar?"
+          required
+        />
+      </div>
+
+      <div class="field field--full">
+        <label for="mensaje">Descripción del proyecto</label>
+        <textarea
+          id="mensaje"
+          name="mensaje"
+          rows="5"
+          placeholder="Cuéntanos qué necesitas"
+          required
+        ></textarea>
+      </div>
+
+      <div class="contact-form__actions">
+        <button class="pill primary contact-submit" type="submit">
+          <span>Enviar mensaje</span>
+          <span class="contact-submit__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M5 12h14" />
+              <path d="m13 6 6 6-6 6" />
+            </svg>
+          </span>
+        </button>
+
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
     </div>
+
+    
+
+    <aside
+      class="contact-vcard"
+      data-rise
+      data-delay="200"
+      aria-label="Datos de contacto de CE&T S.A.S."
+    >
+      <div class="contact-vcard__brand">
+        <span class="contact-vcard__logo"><img src="img_webp/logo_con_letras.webp" alt="logo marca ceytsa" srcset=""></span>
+      </div>
+
+      <div class="contact-vcard__person">
+        <span class="contact-vcard__role">Gerente</span>
+        <h3>Einar Humberto Calderón</h3>
+      </div>
+
+      <ul class="contact-vcard__list">
+        <li>
+          <small>Celular</small>
+          <a href="tel:+573137411185">313 741 11 85</a>
+          <a href="tel:+573116373448">311 637 34 48</a>
+        </li>
+        <li>
+          <small>Correo</small>
+          <a href="mailto:jtaborda@ceytsa.com">jtaborda@ceytsa.com</a>
+          <a href="mailto:einar.calderon@ceytsa.com">
+            einar.calderon@ceytsa.com
+          </a>
+        </li>
+        <li>
+          <small>Oficina</small>
+          <span>Cra. 52 # 52-140, Oficina 701</span>
+          <span>Edificio La Libertad · Medellín, Colombia</span>
+        </li>
+      </ul>
+    </aside>
   </div>
 </section>
 
@@ -1149,18 +1171,6 @@
           <img src="./img_webp/W3.webp" alt="" />
           <img src="./img_webp/backbone_de_fibra_optica.webp" alt="" />
         </div>
-      </div>
-      <div class="container footer">
-        <div class="logo">
-          <img
-            src="./img_webp/logosinfondo2.webp"
-            alt="CE&amp;T S.A.S."
-            loading="lazy"
-          />
-          <small>CABLEADO · ENERGÍA · TELECOMUNICACIONES</small>
-        </div>
-        <p>© <span id="year"></span> CE&amp;T S.A.S. · Medellín, Colombia</p>
-        <a href="#top">Volver arriba ↑</a>
       </div>
     </footer>
 

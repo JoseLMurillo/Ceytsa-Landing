@@ -732,12 +732,12 @@ button {
   border-color: #fff;
   color: var(--ink);
 }
-.gallery-panel {
+/*.gallery-panel {
   counter-reset: item;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
-}
+}*/
 .gallery-panel[hidden] {
   display: none;
 }

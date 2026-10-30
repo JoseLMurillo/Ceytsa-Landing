@@ -21,6 +21,7 @@
   let rafId = 0;
   let revealObserver = null;
   let galleryPanelObserver = null;
+  let galleryRevealObserver = null;
   let resizeTick = 0;
   const galleryState = { section: null, viewport: null, panel: null, max: 0, vh: 0 };
   const storyState = { stage: null, cards: [], dots: [], counter: null, p: 0 };
@@ -250,7 +251,37 @@
     const section = document.querySelector(".gallery");
     if (!section) return;
     createScene(section, updateGallery, "10% 0px 10% 0px");
+    setupGalleryReveal(section);
     measureGallery();
+  }
+
+  /* Aparición conjunta: las cuatro fotografías entran a la vez. */
+  function setupGalleryReveal(section) {
+    const panels = Array.from(section.querySelectorAll(".gallery-panel"));
+    if (!panels.length) return;
+
+    if (galleryRevealObserver) galleryRevealObserver.disconnect();
+    galleryRevealObserver = null;
+
+    if (reduceMQ.matches) {
+      panels.forEach((panel) => panel.classList.add("is-in"));
+      return;
+    }
+
+    galleryRevealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          panels.forEach((panel) => panel.classList.add("is-in"));
+          observer.disconnect();
+        });
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" },
+    );
+
+    galleryRevealObserver.observe(
+      section.querySelector(".gallery-viewport") || section,
+    );
   }
 
   /* ------------------------------------------------------------------ */

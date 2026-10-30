@@ -99,7 +99,7 @@
 
 .gallery-tab {
   padding: 8px 15px;
-  font-size: 11px;
+  font-size: 15px;
   letter-spacing: 0.01em;
   border-color: rgba(255, 255, 255, 0.22);
   transition:
@@ -135,10 +135,18 @@
   outline-offset: -6px;
 }
 
-.gallery-panel:not([hidden]) {
-  animation: none !important;
+/* Las cuatro fotografías aparecen juntas en un único barrido vertical. */
+.js .gallery-panel:not(.is-in):not([hidden]) {
+  opacity: 0;
+  translate: 0 clamp(32px, 6vh, 64px);
+  animation: none;
 }
 
+.gallery-panel.is-in:not([hidden]) {
+  animation: galleryGroupIn 1.2s var(--ease-out-expo) both;
+}
+
+/*
 .gallery-panel {
   display: flex;
   align-items: center;
@@ -148,6 +156,7 @@
   transform: translate3d(var(--gx, 0px), 0, 0);
   will-change: transform;
 }
+*/
 
 .gallery-panel[hidden] {
   display: none !important;
@@ -164,36 +173,30 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: #0a1219;
   clip-path: inset(0);
-  animation: galleryItemIn 1.15s var(--ease-out-expo) both;
-  animation-delay: calc(var(--gi-delay, 0) * 1ms);
 }
 
 .gallery-item:nth-child(1) {
   width: clamp(230px, 29vw, 480px);
   height: min(44vh, 500px);
   margin-top: -2vh;
-  --gi-delay: 40;
 }
 
 .gallery-item:nth-child(2) {
   width: clamp(230px, 29vw, 480px);
   height: min(44vh, 500px);
   margin-top: -2vh;
-  --gi-delay: 130;
 }
 
 .gallery-item:nth-child(3) {
   width: clamp(230px, 29vw, 480px);
   height: min(44vh, 500px);
   margin-top: -2vh;
-  --gi-delay: 220;
 }
 
 .gallery-item:nth-child(4) {
   width: clamp(230px, 29vw, 480px);
   height: min(44vh, 500px);
   margin-top: -2vh;
-  --gi-delay: 310;
 }
 
 .gallery-media {
@@ -526,14 +529,14 @@
   scale: 1 !important;
 }
 
-@keyframes galleryItemIn {
+@keyframes galleryGroupIn {
   from {
-    clip-path: inset(0 0 100% 0);
-    transform: translate3d(0, 38px, 0);
+    opacity: 0;
+    translate: 0 clamp(36px, 6vh, 72px);
   }
   to {
-    clip-path: inset(0);
-    transform: none;
+    opacity: 1;
+    translate: 0 0;
   }
 }
 
@@ -708,6 +711,66 @@
   }
 }
 
+/* En escritorio las cuatro fotografías de cada área se muestran a la vez.
+   El recorrido vertical sigue funcionando, pero sin desplazamiento horizontal. */
+@media (min-width: 901px) {
+  .gallery:not(.is-natural) .gallery-viewport {
+    align-items: stretch;
+    overflow: hidden;
+  }
+
+  .gallery:not(.is-natural) .gallery-panel {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: minmax(0, 1fr);
+    align-items: stretch;
+    gap: clamp(10px, 1.2vw, 22px);
+    width: 100%;
+    height: 100%;
+    padding: 0 22px;
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .gallery:not(.is-natural) .gallery-item,
+  .gallery:not(.is-natural) .gallery-item:nth-child(n) {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    margin-top: 0;
+  }
+
+  .gallery:not(.is-natural) .gallery-item figcaption {
+    padding: clamp(14px, 1.4vw, 22px);
+  }
+
+  .gallery:not(.is-natural) .gi-title {
+    font-size: clamp(15px, 1.15vw, 20px);
+  }
+}
+
+@media (min-width: 901px) and (prefers-reduced-motion: reduce) {
+  .gallery.is-natural .gallery-viewport {
+    overflow: visible;
+    padding: 24px 0 0;
+    scroll-snap-type: none;
+  }
+
+  .gallery.is-natural .gallery-panel {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(10px, 1.2vw, 22px);
+    width: 100%;
+  }
+
+  .gallery.is-natural .gallery-item,
+  .gallery.is-natural .gallery-item:nth-child(n) {
+    width: 100%;
+    height: clamp(300px, 42vw, 520px);
+    margin-top: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .gallery {
     height: auto !important;
@@ -731,6 +794,14 @@
   .gallery-item {
     animation: none !important;
     clip-path: none !important;
+  }
+
+  .gallery-panel,
+  .js .gallery-panel:not(.is-in):not([hidden]) {
+    opacity: 1 !important;
+    translate: none !important;
+    clip-path: none !important;
+    animation: none !important;
   }
 
   .story-stage,
