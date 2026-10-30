@@ -1,6 +1,6 @@
 :root {
-  --blue: #0a3981;
-  --blue2: #2f75d6;
+  --blue: #0d5f6b;
+  --blue2: #0e7a89;
   --ink: #06111d;
   --black: #02060a;
   --slate: #17232d;
@@ -226,8 +226,8 @@ button {
 
 .hero:before {
   background:
-    radial-gradient(circle at 72% 44%, rgba(10, 57, 129, 0.42), transparent 32%),
-    radial-gradient(circle at 48% 104%, rgba(47, 117, 214, 0.18), transparent 44%),
+    radial-gradient(circle at 72% 44%, rgba(13, 95, 107, 0.42), transparent 32%),
+    radial-gradient(circle at 48% 104%, rgba(42, 167, 184, 0.18), transparent 44%),
     linear-gradient(115deg, #02060b 0%, #04101d 52%, #061624 100%);
 }
 
@@ -238,12 +238,12 @@ button {
   background:
     radial-gradient(
       circle at 70% 48%,
-      rgba(10, 57, 129, 0.38),
+      rgba(13, 95, 107, 0.38),
       transparent 33%
     ),
     radial-gradient(
       circle at 50% 100%,
-      rgba(47, 117, 214, 0.14),
+      rgba(42, 167, 184, 0.14),
       transparent 40%
     );
 }
@@ -277,7 +277,7 @@ button {
 
 .hero-orbit {
   position: absolute;
-  border: 1px solid rgb(108, 159, 221);
+  border: 1px solid rgba(173, 252, 255, 0.42);
   border-radius: 50%;
   animation: spin 25s linear infinite;
 }
@@ -339,7 +339,7 @@ button {
   font-size: 17px;
   font-weight: 800;
   letter-spacing: 0.17em;
-  color: #669ce2;
+  color: #adfcff;
   margin-bottom: 22px;
 }
 .kicker span {
@@ -347,8 +347,23 @@ button {
   width: 30px;
   height: 1px;
   vertical-align: middle;
-  background: #669ce2;
+  background: #adfcff;
   margin-right: 10px;
+}
+
+/* Secciones claras: el cian de marca se oscurece para mantener contraste. */
+.experience .kicker,
+.compliance .kicker {
+  color: var(--blue2);
+}
+
+.experience .kicker span,
+.compliance .kicker span {
+  background: var(--blue2);
+}
+
+.experience .display span {
+  color: var(--blue);
 }
 .hero h1 {
   font-size: clamp(54px, 7.2vw, 110px);
@@ -357,7 +372,7 @@ button {
 }
 .hero h1 em {
   font-style: normal;
-  color: #79a9df;
+  color: #adfcff;
 }
 .hero-lead {
   max-width: 530px;
@@ -407,14 +422,14 @@ button {
   width: 100%;
   height: 100%;
   fill: none;
-  stroke: rgba(116, 166, 225, 0.25);
+  stroke: rgba(173, 252, 255, 0.25);
   stroke-width: 1;
 }
 .hero-system svg circle:first-child {
   stroke-dasharray: 2 10;
 }
 .hero-system svg path {
-  stroke: rgba(116, 166, 225, 0.38);
+  stroke: rgba(173, 252, 255, 0.38);
 }
 .node {
   position: absolute;
@@ -426,7 +441,7 @@ button {
 }
 .node b {
   font-size: 15px;
-  color: #77aceb;
+  color: #adfcff;
 }
 .node small {
   font-size: 7px;
@@ -451,7 +466,7 @@ button {
 }
 .hero-orbit {
   position: absolute;
-  border: 2px solid rgb(108, 159, 221);
+  border: 2px solid rgba(173, 252, 255, 0.42);
   border-radius: 50%;
 
   /* Mantenemos la transición suave del mouse */
@@ -583,7 +598,7 @@ button {
   letter-spacing: -0.07em;
 }
 .display span {
-  color: #537fab;
+  color: #adfcff;
 }
 .large-copy {
   max-width: 650px;
@@ -848,7 +863,7 @@ button {
 }
 .story-card > span {
   font-size: 10px;
-  color: #6486a5;
+  color: #8fd9e0;
 }
 .story-card h3 {
   font-size: 38px;
@@ -1013,7 +1028,7 @@ button {
   margin-top: 7px;
 }
 .contact-details a:hover strong {
-  color: #6ca4e4;
+  color: #adfcff;
 }
 .contact-form {
   display: grid;
@@ -1057,8 +1072,8 @@ button {
 }
 .field input:focus,
 .field textarea:focus {
-  border-bottom-color: #6ca4e4;
-  box-shadow: 0 1px 0 #6ca4e4;
+  border-bottom-color: #adfcff;
+  box-shadow: 0 1px 0 #adfcff;
 }
 .contact-form .pill {
   justify-self: start;
@@ -1071,7 +1086,7 @@ button {
   color: #8996a1;
 }
 .form-status.ok {
-  color: #6ca4e4;
+  color: #adfcff;
 }
 .form-status.error {
   color: #e48a8a;

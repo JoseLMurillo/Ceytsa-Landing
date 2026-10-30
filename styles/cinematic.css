@@ -1,7 +1,7 @@
 :root {
   --font-display: Inter, system-ui, sans-serif;
-  --accent: #7ccbec;
-  --accent-deep: #2f75d6;
+  --accent: #adfcff;
+  --accent-deep: #0e7a89;
   --accent-ink: #06111d;
   --paper-warm: #e9ebe7;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -77,7 +77,7 @@ textarea:focus-visible,
 
 .hero h1 em {
   color: var(--accent);
-  text-shadow: 0 0 60px rgba(124, 203, 236, 0.18);
+  text-shadow: 0 0 60px rgba(173, 252, 255, 0.18);
 }
 
 .hero-lead {
@@ -118,7 +118,7 @@ textarea:focus-visible,
 .hero-cta:hover {
   color: var(--accent-ink);
   border-color: var(--accent);
-  box-shadow: 0 20px 60px rgba(124, 203, 236, 0.22);
+  box-shadow: 0 20px 60px rgba(173, 252, 255, 0.22);
 }
 
 .hero-cta:hover::before {
@@ -172,6 +172,7 @@ textarea:focus-visible,
   translate: 0 calc(var(--hp, 0) * 46px);
   opacity: calc(1 - var(--hp, 0) * 1.15);
   will-change: translate, opacity;
+  color: #adfcff
 }
 
 .hero-stat {
@@ -241,7 +242,7 @@ textarea:focus-visible,
   width: min(1000px, 90vw);
   height: 520px;
   transform: translateX(-50%);
-  background: radial-gradient(closest-side, rgba(47, 117, 214, 0.16), transparent 72%);
+  background: radial-gradient(closest-side, rgba(42, 167, 184, 0.16), transparent 72%);
   opacity: calc(0.4 + var(--sp, 0.5) * 0.45);
   pointer-events: none;
 }
@@ -280,7 +281,7 @@ textarea:focus-visible,
   line-height: 0.8;
   letter-spacing: -0.08em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(124, 203, 236, 0.13);
+  -webkit-text-stroke: 1px rgba(173, 252, 255, 0.13);
   pointer-events: none;
   user-select: none;
   translate: 0 calc(var(--sp, 0.5) * -46px);
@@ -334,7 +335,7 @@ textarea:focus-visible,
 }
 
 .capability:hover {
-  border-color: rgba(124, 203, 236, 0.42);
+  border-color: rgba(173, 252, 255, 0.42);
   box-shadow: 0 30px 70px rgba(2, 6, 10, 0.24);
 }
 
@@ -397,7 +398,7 @@ textarea:focus-visible,
 .dark-pill:hover {
   background: var(--blue);
   color: #fff;
-  box-shadow: 0 16px 36px rgba(10, 57, 129, 0.22);
+  box-shadow: 0 16px 36px rgba(13, 95, 107, 0.22);
 }
 
 @keyframes heroLineIn {

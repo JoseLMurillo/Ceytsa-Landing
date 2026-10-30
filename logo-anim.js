@@ -9,7 +9,7 @@
     repeat: 1, // 1, 2, 3... o 0 / 'infinite' para infinitas
     hold: 1.5, // pausa entre ciclos (segundos)
     bounce: true, // círculos con rebote
-    color: "#7ccbec", // color del logo
+    color: "#adfcff", // color del logo
     shadow: true, // sombra del logo
     shadowColor: "#000",
     textColor: "#111", // color del texto E&T S.A.S
