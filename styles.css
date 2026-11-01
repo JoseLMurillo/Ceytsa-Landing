@@ -18,6 +18,9 @@
 }
 html {
   scroll-behavior: smooth;
+  /* Evita el desplazamiento horizontal provocado por las órbitas y el logo
+     animado del hero, sin romper position: sticky ni las animaciones. */
+  overflow-x: clip;
 }
 body {
   font-family: Inter, system-ui, sans-serif;
@@ -25,6 +28,7 @@ body {
   color: var(--ink);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 a {
   color: inherit;
@@ -78,7 +82,7 @@ button {
   z-index: 80;
   pointer-events: none;
   opacity: 0.045;
-  background-image: url("../img_webp/grain.png");
+  background-image: url("./img_webp/grain.png");
   background-size: 140px 140px;
   mix-blend-mode: soft-light;
 }

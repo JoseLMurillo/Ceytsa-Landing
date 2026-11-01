@@ -47,7 +47,8 @@ document.querySelectorAll("#nav a").forEach((a) => {
   });
 });
 
-document.querySelector("#year").textContent = new Date().getFullYear();
+const yearEl = document.querySelector("#year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 document.addEventListener("click", (e) => {
   if (!nav.contains(e.target) && !menu.contains(e.target)) {
