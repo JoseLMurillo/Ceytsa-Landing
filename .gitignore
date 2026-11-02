@@ -1,0 +1,6 @@
+.opencode
+.agents/
+.claude
+agent/
+
+skills-lock.json
